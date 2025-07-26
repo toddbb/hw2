@@ -1,0 +1,49 @@
+[info]
+type = "multiple-choice"
+en = "Read and choose."
+vn = "Đọc và chọn câu trả lời đúng."
+outcome = ""
+multiple = ""
+assisted = ""
+
+
+[question]
+text = "What's my uncle's name?"
+picture = ""
+audio = ""
+pdf = "Reading text.pdf"
+
+
+[answer 00]
+correct = "yes"
+picture = ""
+text = "His name is John."
+audio = ""
+
+
+[id]
+0 = "03"
+
+
+[source]
+0 = "content/lessons/SJ_A1_004/test"
+
+
+[answer 01]
+correct = "no"
+picture = ""
+text = "He likes swimming."
+audio = ""
+
+
+[answer 02]
+correct = "no"
+picture = ""
+text = "He is 40 years old."
+audio = ""
+
+
+[changed]
+0 = "1"
+
+

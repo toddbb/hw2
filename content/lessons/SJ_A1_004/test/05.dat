@@ -1,0 +1,35 @@
+[info]
+type = "fill-blanks"
+en = "Read and write one word for each gap."
+vn = "Đọc và viết 1 từ cho mỗi chỗ trống."
+outcome = ""
+assisted = "no"
+
+
+[question]
+text = ""
+picture = "Reading text 1-01.png"
+audio = ""
+pdf = ""
+
+
+[paragraph 00]
+text = "1. Anna is my {aunt}."
+
+
+[id]
+0 = "05"
+
+
+[source]
+0 = "content/lessons/SJ_A1_004/test"
+
+
+[paragraph 01]
+text = "2. My aunt is {thirty}-five years olds."
+
+
+[changed]
+0 = "1"
+
+

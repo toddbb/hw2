@@ -1,0 +1,31 @@
+[info]
+type = "fill-blanks"
+en = "Write a suitable answer for each gap to complete the suspect's answer."
+vn = "Điền đáp án phù hợp cho mỗi ô trống để tạo thành câu trả lời hoàn chỉnh cho mỗi nghi phạm."
+outcome = ""
+assisted = "no"
+
+
+[question]
+text = ""
+picture = ""
+audio = ""
+pdf = "police interview 2.pdf"
+
+
+[paragraph 00]
+text = "1. {suspect}                2. {Gordon Turner}"
+
+
+[id]
+0 = "11"
+
+
+[source]
+0 = "content/lessons/ST_B2_001/test"
+
+
+[paragraph 01]
+text = "3. {tour guide}                4. {carry out}"
+
+

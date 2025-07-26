@@ -1,0 +1,51 @@
+[info]
+type = "fill-blanks"
+en = "Listen and write one word from the audio for each gap to complete the summary."
+vn = "
+
+Nghe và điền một từ có trong audio cho mỗi ô trống để hoàn thành đoạn tóm tắt.
+
+"
+outcome = ""
+assisted = "no"
+
+
+[question]
+text = ""
+picture = ""
+audio = "HW_mp3_complete summary Sphix_edit_2024launch.mp3"
+pdf = "LIC_listen and complete summary.pdf"
+
+
+[paragraph 00]
+text = "1. {legendary}          2. {dangerous}"
+
+
+[id]
+0 = "05"
+
+
+[source]
+0 = "content/lessons/ST_B2_001/test"
+
+
+[paragraph 01]
+text = "
+
+3. {guardian}          4. {suspect}"
+
+
+[paragraph 02]
+text = "
+
+5. {pollution}          6. {damage}"
+
+
+[paragraph 03]
+text = "
+
+7. {culture}          8. {imaginations}
+
+"
+
+

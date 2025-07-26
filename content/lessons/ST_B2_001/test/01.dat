@@ -1,0 +1,55 @@
+[info]
+type = "multiple-choice"
+en = "Read the text and choose the correct definition for the underlined idiom."
+vn = "
+
+Đọc đoạn văn và chọn định nghĩa đúng cho thành ngữ được gạch chân.
+
+"
+outcome = ""
+multiple = "no"
+assisted = ""
+
+
+[question]
+text = ""
+picture = "IDIOM_introduction.png"
+audio = ""
+pdf = ""
+
+
+[answer 00]
+correct = "yes"
+picture = ""
+text = "to have an embarrassing or unpleasant secret about something that happened in the past"
+audio = ""
+
+
+[id]
+0 = "01"
+
+
+[source]
+0 = "content/lessons/ST_B2_001/test"
+
+
+[answer 01]
+correct = "no"
+picture = ""
+text = "
+
+to possess a hidden collection of historical artifacts, particularly ancient skeletal remains, stored in a secret corner"
+audio = ""
+
+
+[answer 02]
+correct = "no"
+picture = ""
+text = "
+
+to get into weird habits and join a club where there are many people sharing common interests
+
+"
+audio = ""
+
+

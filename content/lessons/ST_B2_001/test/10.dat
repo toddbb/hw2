@@ -1,0 +1,31 @@
+[info]
+type = "fill-blanks"
+en = "Write a suitable answer for each gap to complete the suspect's answer."
+vn = "Điền đáp án phù hợp cho mỗi ô trống để tạo thành câu trả lời hoàn chỉnh cho mỗi nghi phạm."
+outcome = ""
+assisted = "no"
+
+
+[question]
+text = ""
+picture = ""
+audio = ""
+pdf = "police interview 1.pdf"
+
+
+[paragraph 00]
+text = "1. {Jozef Bennet}                2. {library}"
+
+
+[id]
+0 = "10"
+
+
+[source]
+0 = "content/lessons/ST_B2_001/test"
+
+
+[paragraph 01]
+text = "3. {information}                4. {theft}"
+
+

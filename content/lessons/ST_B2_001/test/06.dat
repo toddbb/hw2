@@ -1,0 +1,33 @@
+[info]
+type = "highlight-text"
+en = "Read the information to know about the setting of theft happening at the Egyptian Museum."
+vn = "
+
+Đọc thông tin để biết nhiều hơn về bối cảnh vụ trộm diễn ra tại Bảo tàng Ai Cập.
+
+
+
+"
+outcome = ""
+
+
+[question]
+text = ""
+picture = ""
+audio = ""
+pdf = "theft introduction.pdf"
+
+
+[paragraph 00]
+text = "Have you finished this task?                                         {YES}           NO"
+max = "1"
+
+
+[id]
+0 = "06"
+
+
+[source]
+0 = "content/lessons/ST_B2_001/test"
+
+

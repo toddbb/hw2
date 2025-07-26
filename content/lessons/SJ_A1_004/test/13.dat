@@ -1,0 +1,54 @@
+[info]
+type = "open-answers"
+en = "Look and think of one word for each gap. Write all 4 sentences."
+vn = "Nhìn hình và chọn một từ cho mỗi ô trống. Viết cả 4 câu hoàn chỉnh."
+outcome = ""
+
+
+[question]
+text = ""
+picture = "WRI_sentence wri S2.png"
+audio = ""
+pdf = ""
+
+
+[answer 00]
+text = "1."
+picture = ""
+audio = ""
+answers = "This is my uncle."
+
+
+[id]
+0 = "13"
+
+
+[source]
+0 = "content/lessons/SJ_A1_004/test"
+
+
+[answer 01]
+text = "2."
+picture = ""
+audio = ""
+answers = "His name is Ryan."
+
+
+[answer 02]
+text = "3."
+picture = ""
+audio = ""
+answers = "He is fifty five years old. / He's fifty five years old."
+
+
+[answer 03]
+text = "4."
+picture = ""
+audio = ""
+answers = "He likes rice and chicken. "
+
+
+[changed]
+0 = "1"
+
+

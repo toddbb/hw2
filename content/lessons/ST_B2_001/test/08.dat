@@ -1,0 +1,43 @@
+[info]
+type = "fill-blanks"
+en = "Listen and complete the summary using words from the audio."
+vn = "
+
+Nghe và hoàn thành đoạn tóm tắt bằng cách sử dụng từ trong audio.
+
+"
+outcome = ""
+assisted = "no"
+
+
+[question]
+text = ""
+picture = ""
+audio = "HW_mp3_interview 2_edit_2024launch.mp3"
+pdf = "LIC suspect summary.pdf"
+
+
+[paragraph 00]
+text = "1. {art}          2. {friends}"
+
+
+[id]
+0 = "08"
+
+
+[source]
+0 = "content/lessons/ST_B2_001/test"
+
+
+[paragraph 01]
+text = "3. {website}          4. {creativity}"
+
+
+[paragraph 02]
+text = "5. {achievements}          6. {research}"
+
+
+[paragraph 03]
+text = "7. {newspaper}"
+
+

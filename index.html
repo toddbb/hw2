@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>HW Mockup</title>
+      <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico" />
+      <link rel="stylesheet" href="styles/framework.css" />
+      <link rel="stylesheet" href="styles/styles.css" />
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+   </head>
+   <body>
+      <div class="wrapper flex-col justify-center items-center h-full">
+         <!-- Start View -->
+         <div class="view-start nodisplay flex-col justify-center align-center h-full w-full">
+            <button class="btn btn-primary">Start</button>
+         </div>
+
+         <!-- Homework View -->
+         <div data-uid="layer-front" class="view-hw structure-fullscreen content-centered h-full w-full">
+            <div data-ui="popup-desktop" class="modal-activity flex-col w-full" data-uid="popup-window">
+               <div class="container-homework flex-col w-full h-full">
+                  <!-- Header -->
+                  <header class="hw-header flex-row justify-center items-center">
+                     <div class="progress-bar-container"></div>
+                  </header>
+
+                  <!-- Main Content -->
+                  <main class="hw-main flex-col">
+                     <!-- Instructions -->
+                     <div class="hw-main-instruction flex-col items-center justify-center w-full"></div>
+
+                     <!-- Homework Section -->
+                     <section class="hw-main-section h-full">
+                        <!-- Question Display -->
+                        <div class="hw-main-question h-full">
+                           <div class="hw-main-question-body flex-col items-center justify-start h-full"></div>
+                        </div>
+
+                        <!-- Response Area -->
+                        <div class="hw-main-response h-full">
+                           <div class="hw-main-response-text flex-col items-center justify-center"></div>
+                        </div>
+                     </section>
+                  </main>
+
+                  <!-- Footer -->
+                  <footer class="hw-footer flex-col justify-center items-center">
+                     <div class="hw-footer-grid-container">
+                        <!-- Left Actions -->
+                        <div class="hw-footer-buttons-left">
+                           <button class="btn hw-btn-skip">Skip</button>
+                        </div>
+
+                        <!-- Feedback Area -->
+                        <div class="hw-footer-feedback flex-row items-center justify-center">
+                           <svg class="feedback-icon-trophy feedback-icon nodisplay" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                 d="M400 0L176 0c-26.5 0-48.1 21.8-47.1 48.2c.2 5.3 .4 10.6 .7 15.8L24 64C10.7 64 0 74.7 0 88c0 92.6 33.5 157 78.5 200.7c44.3 43.1 98.3 64.8 138.1 75.8c23.4 6.5 39.4 26 39.4 45.6c0 20.9-17 37.9-37.9 37.9L192 448c-17.7 0-32 14.3-32 32s14.3 32 32 32l192 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-26.1 0C337 448 320 431 320 410.1c0-19.6 15.9-39.2 39.4-45.6c39.9-11 93.9-32.7 138.2-75.8C542.5 245 576 180.6 576 88c0-13.3-10.7-24-24-24L446.4 64c.3-5.2 .5-10.4 .7-15.8C448.1 21.8 426.5 0 400 0zM48.9 112l84.4 0c9.1 90.1 29.2 150.3 51.9 190.6c-24.9-11-50.8-26.5-73.2-48.3c-32-31.1-58-76-63-142.3zM464.1 254.3c-22.4 21.8-48.3 37.3-73.2 48.3c22.7-40.3 42.8-100.5 51.9-190.6l84.4 0c-5.1 66.3-31.1 111.2-63 142.3z"
+                              />
+                           </svg>
+                           <svg class="feedback-icon-thumbs-up feedback-icon nodisplay" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                 d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                              />
+                           </svg>
+                           <h3 class="feedback-text"></h3>
+                        </div>
+
+                        <!-- Right Actions -->
+                        <div class="hw-footer-buttons-right">
+                           <button class="btn hw-btn-control mode-check active">Check</button>
+                        </div>
+                     </div>
+                  </footer>
+               </div>
+            </div>
+         </div>
+
+         <!-- Results View -->
+         <div class="view-results nodisplay flex-col justify-center items-center h-full w-full">
+            <h1>TO DO: Handle results here....</h1>
+         </div>
+      </div>
+
+      <script src="scripts/script.js" type="module"></script>
+   </body>
+</html>

@@ -1,0 +1,68 @@
+[info]
+type = "order-items"
+en = "Unscramble the sentence."
+vn = "Sắp xếp từ thành câu."
+outcome = ""
+
+
+[question]
+text = ""
+picture = "SJ_A1_004 unscramble.png"
+audio = ""
+pdf = ""
+
+
+[item 00]
+text = "This is"
+picture = ""
+audio = ""
+
+
+[id]
+0 = "10"
+
+
+[source]
+0 = "content/lessons/SJ_A1_004/test"
+
+
+[item 01]
+text = "my"
+picture = ""
+audio = ""
+
+
+[item 02]
+text = "aunt."
+picture = ""
+audio = ""
+
+
+[item 03]
+text = "Her "
+picture = ""
+audio = ""
+
+
+[item 04]
+text = "name "
+picture = ""
+audio = ""
+
+
+[item 05]
+text = "is"
+picture = ""
+audio = ""
+
+
+[item 06]
+text = "Sarah."
+picture = ""
+audio = ""
+
+
+[changed]
+0 = "1"
+
+

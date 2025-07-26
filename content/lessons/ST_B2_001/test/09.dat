@@ -1,0 +1,94 @@
+[info]
+type = "match-items"
+en = "Listen and match the correct witness for each suspect."
+vn = "Nghe và ghép nhân chứng đúng với mỗi nghi phạm."
+outcome = ""
+
+
+[question]
+text = ""
+picture = "match_word and definition.png"
+audio = "HW_mp3_interview 3_edit_2024launch.mp3"
+pdf = ""
+
+
+[item 00]
+column = "left"
+text = "Christopher Nelson"
+picture = ""
+audio = ""
+
+
+[id]
+0 = "09"
+
+
+[source]
+0 = "content/lessons/ST_B2_001/test"
+
+
+[item 01]
+column = "right"
+text = "party's guests"
+picture = ""
+audio = ""
+
+
+[item 02]
+column = "left"
+text = "
+
+Daria Young"
+picture = ""
+audio = ""
+
+
+[item 03]
+column = "right"
+text = "
+
+fan"
+picture = ""
+audio = ""
+
+
+[item 04]
+column = "left"
+text = "
+
+Gordon Turner"
+picture = ""
+audio = ""
+
+
+[item 05]
+column = "right"
+text = "
+
+visitors"
+picture = ""
+audio = ""
+
+
+[item 06]
+column = "left"
+text = "
+
+Jozef Bennet
+
+"
+picture = ""
+audio = ""
+
+
+[item 07]
+column = "right"
+text = "
+
+assistant
+
+"
+picture = ""
+audio = ""
+
+

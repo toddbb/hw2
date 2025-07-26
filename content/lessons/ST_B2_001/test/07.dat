@@ -1,0 +1,46 @@
+[info]
+type = "highlight-text"
+en = "Listen to a police investigation. Choose the correct answer."
+vn = "Nghe cuộc điều tra của cảnh sát. Chọn câu trả lời đúng."
+outcome = ""
+
+
+[question]
+text = ""
+picture = "listen_highlighted text.png"
+audio = "HW_mp3_interview 1_edit_2024launch.mp3"
+pdf = ""
+
+
+[paragraph 00]
+text = "1. Christopher Nelson is fascinated by Egypt's  ( {ancient civilizations} / modernity ), so he wants to see Egypt's pyramids and artifacts."
+max = "2"
+
+
+[id]
+0 = "07"
+
+
+[source]
+0 = "content/lessons/ST_B2_001/test"
+
+
+[paragraph 01]
+text = "
+
+2. Daria Young wants to find inspiration in Egypt for her ( dance shows / {dramas} ) in the future."
+max = "2"
+
+
+[paragraph 02]
+text = "
+
+3. Gordon Turner works as a tour guide in Egypt to show people its rich history and ( {treasures} / mummies )."
+max = "1"
+
+
+[paragraph 03]
+text = "4. Jozef Bennet thinks Egypt is an exciting place with lots of ( cultural heritage / {archaeological sites} ) and mysteries to explore."
+max = "2"
+
+

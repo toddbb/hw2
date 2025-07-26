@@ -1,0 +1,49 @@
+[info]
+type = "multiple-choice"
+en = "Read and choose."
+vn = "Đọc và chọn câu trả lời đúng."
+outcome = ""
+multiple = ""
+assisted = ""
+
+
+[question]
+text = "How old is my aunt?"
+picture = ""
+audio = ""
+pdf = "Reading text.pdf"
+
+
+[answer 00]
+correct = "yes"
+picture = ""
+text = "She is 35 years old."
+audio = ""
+
+
+[id]
+0 = "02"
+
+
+[source]
+0 = "content/lessons/SJ_A1_004/test"
+
+
+[answer 01]
+correct = "no"
+picture = ""
+text = "She is 13 years old."
+audio = ""
+
+
+[answer 02]
+correct = "no"
+picture = ""
+text = "She is 30 years old."
+audio = ""
+
+
+[changed]
+0 = "1"
+
+

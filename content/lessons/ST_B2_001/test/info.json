@@ -1,0 +1,488 @@
+[
+    {
+        "info": {
+            "type": "multiple-choice",
+            "en": "Read the text and choose the correct definition for the underlined idiom.",
+            "vn": "\n\nĐọc đoạn văn và chọn định nghĩa đúng cho thành ngữ được gạch chân.\n\n",
+            "outcome": "",
+            "multiple": "no",
+            "assisted": ""
+        },
+        "question": {
+            "text": "",
+            "picture": "IDIOM_introduction.png",
+            "audio": "",
+            "pdf": ""
+        },
+        "answer 00": {
+            "correct": "yes",
+            "picture": "",
+            "text": "to have an embarrassing or unpleasant secret about something that happened in the past",
+            "audio": ""
+        },
+        "id": "01",
+        "source": [
+            "content/lessons/ST_B2_001/test"
+        ],
+        "answer 01": {
+            "correct": "no",
+            "picture": "",
+            "text": "\n\nto possess a hidden collection of historical artifacts, particularly ancient skeletal remains, stored in a secret corner",
+            "audio": ""
+        },
+        "answer 02": {
+            "correct": "no",
+            "picture": "",
+            "text": "\n\nto get into weird habits and join a club where there are many people sharing common interests\n\n",
+            "audio": ""
+        }
+    },
+    {
+        "info": {
+            "type": "match-items",
+            "en": "Read and match each definition to the correct word(s).",
+            "vn": "\n\nĐọc và ghép định nghĩa với mỗi từ sao cho đúng.\n\n",
+            "outcome": ""
+        },
+        "question": {
+            "text": "",
+            "picture": "match_word and definition.png",
+            "audio": "",
+            "pdf": ""
+        },
+        "item 00": {
+            "column": "left",
+            "text": "megalithic",
+            "picture": "",
+            "audio": ""
+        },
+        "id": "02",
+        "source": [
+            "content/lessons/ST_B2_001/test"
+        ],
+        "item 01": {
+            "column": "right",
+            "text": "large stones or monuments which are often of historical or archaeological significance",
+            "picture": "",
+            "audio": ""
+        },
+        "item 02": {
+            "column": "left",
+            "text": "\n\nheiress",
+            "picture": "",
+            "audio": ""
+        },
+        "item 03": {
+            "column": "right",
+            "text": "a female who is set to inherit wealth, properties, etc. usually upon the death of her parents or ancestors ",
+            "picture": "",
+            "audio": ""
+        },
+        "item 04": {
+            "column": "left",
+            "text": "descendant",
+            "picture": "",
+            "audio": ""
+        },
+        "item 05": {
+            "column": "right",
+            "text": "someone who is related to a person who lived a long time ago",
+            "picture": "",
+            "audio": ""
+        },
+        "item 06": {
+            "column": "left",
+            "text": "\n\nchild prodigy",
+            "picture": "",
+            "audio": ""
+        },
+        "item 07": {
+            "column": "right",
+            "text": "\n\na young person who has exceptional talent, skill, or intelligence in a specific field at a very early age",
+            "picture": "",
+            "audio": ""
+        },
+        "item 08": {
+            "column": "left",
+            "text": "\n\nEgyptologist",
+            "picture": "",
+            "audio": ""
+        },
+        "item 09": {
+            "column": "right",
+            "text": "\n\na person who studies the language, history and culture of ancient Egypt",
+            "picture": "",
+            "audio": ""
+        },
+        "item 10": {
+            "column": "left",
+            "text": "\n\nPhD",
+            "picture": "",
+            "audio": ""
+        },
+        "item 11": {
+            "column": "right",
+            "text": "\n\nthe highest academic degree awarded by universities in many fields of study",
+            "picture": "",
+            "audio": ""
+        },
+        "item 12": {
+            "column": "left",
+            "text": "\n\ndissertation\n\n",
+            "picture": "",
+            "audio": ""
+        },
+        "item 13": {
+            "column": "right",
+            "text": "\n\na long piece of writing on a particular subject, especially one written for a university degree\n\n",
+            "picture": "",
+            "audio": ""
+        }
+    },
+    {
+        "info": {
+            "type": "fill-blanks",
+            "en": "Write the correct form of the given words.",
+            "vn": "Điền dạng từ đúng của những từ đã cho.",
+            "outcome": "",
+            "assisted": "no"
+        },
+        "question": {
+            "text": "",
+            "picture": "VOCAB 1_word form_edit_2024launch.png",
+            "audio": "",
+            "pdf": ""
+        },
+        "paragraph 00": {
+            "text": "1.  a. {mysterious}"
+        },
+        "id": "03",
+        "source": [
+            "content/lessons/ST_B2_001/test"
+        ],
+        "paragraph 01": {
+            "text": "\n\n2.  a. {disappearance}          b. {disappeared}"
+        },
+        "paragraph 02": {
+            "text": "\n\n3.  a. {believe}          b. {believable}"
+        },
+        "paragraph 03": {
+            "text": "4.  a. {fascination}          b. {fascinate}"
+        }
+    },
+    {
+        "info": {
+            "type": "fill-blanks",
+            "en": "Write the correct form of the given words.",
+            "vn": "Điền dạng từ đúng của những từ đã cho.",
+            "outcome": "",
+            "assisted": "no"
+        },
+        "question": {
+            "text": "",
+            "picture": "VOCAB 2_word form_edit_2024launch.png",
+            "audio": "",
+            "pdf": ""
+        },
+        "paragraph 00": {
+            "text": "1.  a. {legend}"
+        },
+        "id": "04",
+        "source": [
+            "content/lessons/ST_B2_001/test"
+        ],
+        "paragraph 01": {
+            "text": "2.  a. {investigation}          b. {investigative}"
+        },
+        "paragraph 02": {
+            "text": "3.  a. {solve}          b. {solvable}"
+        },
+        "paragraph 03": {
+            "text": "4.  a. {suspicion}         b. {suspect}"
+        }
+    },
+    {
+        "info": {
+            "type": "fill-blanks",
+            "en": "Listen and write one word from the audio for each gap to complete the summary.",
+            "vn": "\n\nNghe và điền một từ có trong audio cho mỗi ô trống để hoàn thành đoạn tóm tắt.\n\n",
+            "outcome": "",
+            "assisted": "no"
+        },
+        "question": {
+            "text": "",
+            "picture": "",
+            "audio": "HW_mp3_complete summary Sphix_edit_2024launch.mp3",
+            "pdf": "LIC_listen and complete summary.pdf"
+        },
+        "paragraph 00": {
+            "text": "1. {legendary}          2. {dangerous}"
+        },
+        "id": "05",
+        "source": [
+            "content/lessons/ST_B2_001/test"
+        ],
+        "paragraph 01": {
+            "text": "\n\n3. {guardian}          4. {suspect}"
+        },
+        "paragraph 02": {
+            "text": "\n\n5. {pollution}          6. {damage}"
+        },
+        "paragraph 03": {
+            "text": "\n\n7. {culture}          8. {imaginations}\n\n"
+        }
+    },
+    {
+        "info": {
+            "type": "highlight-text",
+            "en": "Read the information to know about the setting of theft happening at the Egyptian Museum.",
+            "vn": "\n\nĐọc thông tin để biết nhiều hơn về bối cảnh vụ trộm diễn ra tại Bảo tàng Ai Cập.\n\n\n\n",
+            "outcome": ""
+        },
+        "question": {
+            "text": "",
+            "picture": "",
+            "audio": "",
+            "pdf": "theft introduction.pdf"
+        },
+        "paragraph 00": {
+            "text": "Have you finished this task?                                         {YES}           NO",
+            "max": "1"
+        },
+        "id": "06",
+        "source": [
+            "content/lessons/ST_B2_001/test"
+        ]
+    },
+    {
+        "info": {
+            "type": "highlight-text",
+            "en": "Listen to a police investigation. Choose the correct answer.",
+            "vn": "Nghe cuộc điều tra của cảnh sát. Chọn câu trả lời đúng.",
+            "outcome": ""
+        },
+        "question": {
+            "text": "",
+            "picture": "listen_highlighted text.png",
+            "audio": "HW_mp3_interview 1_edit_2024launch.mp3",
+            "pdf": ""
+        },
+        "paragraph 00": {
+            "text": "1. Christopher Nelson is fascinated by Egypt's  ( {ancient civilizations} / modernity ), so he wants to see Egypt's pyramids and artifacts.",
+            "max": "2"
+        },
+        "id": "07",
+        "source": [
+            "content/lessons/ST_B2_001/test"
+        ],
+        "paragraph 01": {
+            "text": "\n\n2. Daria Young wants to find inspiration in Egypt for her ( dance shows / {dramas} ) in the future.",
+            "max": "2"
+        },
+        "paragraph 02": {
+            "text": "\n\n3. Gordon Turner works as a tour guide in Egypt to show people its rich history and ( {treasures} / mummies ).",
+            "max": "1"
+        },
+        "paragraph 03": {
+            "text": "4. Jozef Bennet thinks Egypt is an exciting place with lots of ( cultural heritage / {archaeological sites} ) and mysteries to explore.",
+            "max": "2"
+        }
+    },
+    {
+        "info": {
+            "type": "fill-blanks",
+            "en": "Listen and complete the summary using words from the audio.",
+            "vn": "\n\nNghe và hoàn thành đoạn tóm tắt bằng cách sử dụng từ trong audio.\n\n",
+            "outcome": "",
+            "assisted": "no"
+        },
+        "question": {
+            "text": "",
+            "picture": "",
+            "audio": "HW_mp3_interview 2_edit_2024launch.mp3",
+            "pdf": "LIC suspect summary.pdf"
+        },
+        "paragraph 00": {
+            "text": "1. {art}          2. {friends}"
+        },
+        "id": "08",
+        "source": [
+            "content/lessons/ST_B2_001/test"
+        ],
+        "paragraph 01": {
+            "text": "3. {website}          4. {creativity}"
+        },
+        "paragraph 02": {
+            "text": "5. {achievements}          6. {research}"
+        },
+        "paragraph 03": {
+            "text": "7. {newspaper}"
+        }
+    },
+    {
+        "info": {
+            "type": "match-items",
+            "en": "Listen and match the correct witness for each suspect.",
+            "vn": "Nghe và ghép nhân chứng đúng với mỗi nghi phạm.",
+            "outcome": ""
+        },
+        "question": {
+            "text": "",
+            "picture": "match_word and definition.png",
+            "audio": "HW_mp3_interview 3_edit_2024launch.mp3",
+            "pdf": ""
+        },
+        "item 00": {
+            "column": "left",
+            "text": "Christopher Nelson",
+            "picture": "",
+            "audio": ""
+        },
+        "id": "09",
+        "source": [
+            "content/lessons/ST_B2_001/test"
+        ],
+        "item 01": {
+            "column": "right",
+            "text": "party's guests",
+            "picture": "",
+            "audio": ""
+        },
+        "item 02": {
+            "column": "left",
+            "text": "\n\nDaria Young",
+            "picture": "",
+            "audio": ""
+        },
+        "item 03": {
+            "column": "right",
+            "text": "\n\nfan",
+            "picture": "",
+            "audio": ""
+        },
+        "item 04": {
+            "column": "left",
+            "text": "\n\nGordon Turner",
+            "picture": "",
+            "audio": ""
+        },
+        "item 05": {
+            "column": "right",
+            "text": "\n\nvisitors",
+            "picture": "",
+            "audio": ""
+        },
+        "item 06": {
+            "column": "left",
+            "text": "\n\nJozef Bennet\n\n",
+            "picture": "",
+            "audio": ""
+        },
+        "item 07": {
+            "column": "right",
+            "text": "\n\nassistant\n\n",
+            "picture": "",
+            "audio": ""
+        }
+    },
+    {
+        "info": {
+            "type": "fill-blanks",
+            "en": "Write a suitable answer for each gap to complete the suspect's answer.",
+            "vn": "Điền đáp án phù hợp cho mỗi ô trống để tạo thành câu trả lời hoàn chỉnh cho mỗi nghi phạm.",
+            "outcome": "",
+            "assisted": "no"
+        },
+        "question": {
+            "text": "",
+            "picture": "",
+            "audio": "",
+            "pdf": "police interview 1.pdf"
+        },
+        "paragraph 00": {
+            "text": "1. {Jozef Bennet}                2. {library}"
+        },
+        "id": "10",
+        "source": [
+            "content/lessons/ST_B2_001/test"
+        ],
+        "paragraph 01": {
+            "text": "3. {information}                4. {theft}"
+        }
+    },
+    {
+        "info": {
+            "type": "fill-blanks",
+            "en": "Write a suitable answer for each gap to complete the suspect's answer.",
+            "vn": "Điền đáp án phù hợp cho mỗi ô trống để tạo thành câu trả lời hoàn chỉnh cho mỗi nghi phạm.",
+            "outcome": "",
+            "assisted": "no"
+        },
+        "question": {
+            "text": "",
+            "picture": "",
+            "audio": "",
+            "pdf": "police interview 2.pdf"
+        },
+        "paragraph 00": {
+            "text": "1. {suspect}                2. {Gordon Turner}"
+        },
+        "id": "11",
+        "source": [
+            "content/lessons/ST_B2_001/test"
+        ],
+        "paragraph 01": {
+            "text": "3. {tour guide}                4. {carry out}"
+        }
+    },
+    {
+        "info": {
+            "type": "fill-blanks",
+            "en": "Write a suitable answer for each gap to complete the suspect's answer.",
+            "vn": "Điền đáp án phù hợp cho mỗi ô trống để tạo thành câu trả lời hoàn chỉnh cho mỗi nghi phạm.",
+            "outcome": "",
+            "assisted": "no"
+        },
+        "question": {
+            "text": "",
+            "picture": "",
+            "audio": "",
+            "pdf": "police interview 3.pdf"
+        },
+        "paragraph 00": {
+            "text": "1. {Christopher Nelson}                2. {departure}"
+        },
+        "id": "12",
+        "source": [
+            "content/lessons/ST_B2_001/test"
+        ],
+        "paragraph 01": {
+            "text": "3. {questionable}                4. {diversion}"
+        }
+    },
+    {
+        "info": {
+            "type": "fill-blanks",
+            "en": "Write a suitable answer for each gap to complete the suspect's answer.",
+            "vn": "Điền đáp án phù hợp cho mỗi ô trống để tạo thành câu trả lời hoàn chỉnh cho mỗi nghi phạm.",
+            "outcome": "",
+            "assisted": "no"
+        },
+        "question": {
+            "text": "",
+            "picture": "",
+            "audio": "",
+            "pdf": "police interview 4.pdf"
+        },
+        "paragraph 00": {
+            "text": "1. {Daria Young}                2. {evidence}"
+        },
+        "id": "13",
+        "source": [
+            "content/lessons/ST_B2_001/test"
+        ],
+        "paragraph 01": {
+            "text": "3. {distraction}                4. {commit}"
+        }
+    }
+]

@@ -1,0 +1,43 @@
+[info]
+type = "fill-blanks"
+en = "Write the correct form of the given words."
+vn = "Điền dạng từ đúng của những từ đã cho."
+outcome = ""
+assisted = "no"
+
+
+[question]
+text = ""
+picture = "VOCAB 1_word form_edit_2024launch.png"
+audio = ""
+pdf = ""
+
+
+[paragraph 00]
+text = "1.  a. {mysterious}"
+
+
+[id]
+0 = "03"
+
+
+[source]
+0 = "content/lessons/ST_B2_001/test"
+
+
+[paragraph 01]
+text = "
+
+2.  a. {disappearance}          b. {disappeared}"
+
+
+[paragraph 02]
+text = "
+
+3.  a. {believe}          b. {believable}"
+
+
+[paragraph 03]
+text = "4.  a. {fascination}          b. {fascinate}"
+
+

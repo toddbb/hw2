@@ -1,0 +1,35 @@
+[info]
+type = "fill-blanks"
+en = "Read and write one word for each gap."
+vn = "Đọc và viết 1 từ cho mỗi chỗ trống."
+outcome = ""
+assisted = "no"
+
+
+[question]
+text = ""
+picture = "Reading text 1-01.png"
+audio = ""
+pdf = ""
+
+
+[paragraph 00]
+text = "3. My uncle's name is {John}."
+
+
+[id]
+0 = "06"
+
+
+[source]
+0 = "content/lessons/SJ_A1_004/test"
+
+
+[paragraph 01]
+text = "4. John likes {swimming}."
+
+
+[changed]
+0 = "1"
+
+

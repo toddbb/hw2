@@ -1,0 +1,146 @@
+[info]
+type = "match-items"
+en = "Read and match each definition to the correct word(s)."
+vn = "
+
+Đọc và ghép định nghĩa với mỗi từ sao cho đúng.
+
+"
+outcome = ""
+
+
+[question]
+text = ""
+picture = "match_word and definition.png"
+audio = ""
+pdf = ""
+
+
+[item 00]
+column = "left"
+text = "megalithic"
+picture = ""
+audio = ""
+
+
+[id]
+0 = "02"
+
+
+[source]
+0 = "content/lessons/ST_B2_001/test"
+
+
+[item 01]
+column = "right"
+text = "large stones or monuments which are often of historical or archaeological significance"
+picture = ""
+audio = ""
+
+
+[item 02]
+column = "left"
+text = "
+
+heiress"
+picture = ""
+audio = ""
+
+
+[item 03]
+column = "right"
+text = "a female who is set to inherit wealth, properties, etc. usually upon the death of her parents or ancestors "
+picture = ""
+audio = ""
+
+
+[item 04]
+column = "left"
+text = "descendant"
+picture = ""
+audio = ""
+
+
+[item 05]
+column = "right"
+text = "someone who is related to a person who lived a long time ago"
+picture = ""
+audio = ""
+
+
+[item 06]
+column = "left"
+text = "
+
+child prodigy"
+picture = ""
+audio = ""
+
+
+[item 07]
+column = "right"
+text = "
+
+a young person who has exceptional talent, skill, or intelligence in a specific field at a very early age"
+picture = ""
+audio = ""
+
+
+[item 08]
+column = "left"
+text = "
+
+Egyptologist"
+picture = ""
+audio = ""
+
+
+[item 09]
+column = "right"
+text = "
+
+a person who studies the language, history and culture of ancient Egypt"
+picture = ""
+audio = ""
+
+
+[item 10]
+column = "left"
+text = "
+
+PhD"
+picture = ""
+audio = ""
+
+
+[item 11]
+column = "right"
+text = "
+
+the highest academic degree awarded by universities in many fields of study"
+picture = ""
+audio = ""
+
+
+[item 12]
+column = "left"
+text = "
+
+dissertation
+
+"
+picture = ""
+audio = ""
+
+
+[item 13]
+column = "right"
+text = "
+
+a long piece of writing on a particular subject, especially one written for a university degree
+
+"
+picture = ""
+audio = ""
+
+

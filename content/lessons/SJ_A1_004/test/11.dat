@@ -1,0 +1,56 @@
+[info]
+type = "order-items"
+en = "Unscramble the sentence."
+vn = "Sắp xếp từ thành câu."
+outcome = ""
+
+
+[question]
+text = ""
+picture = "Write unscramble-08.png"
+audio = ""
+pdf = ""
+
+
+[item 00]
+text = "She"
+picture = ""
+audio = ""
+
+
+[id]
+0 = "11"
+
+
+[source]
+0 = "content/lessons/SJ_A1_004/test"
+
+
+[item 01]
+text = "is"
+picture = ""
+audio = ""
+
+
+[item 02]
+text = "thirty"
+picture = ""
+audio = ""
+
+
+[item 03]
+text = "years"
+picture = ""
+audio = ""
+
+
+[item 04]
+text = "old."
+picture = ""
+audio = ""
+
+
+[changed]
+0 = "1"
+
+

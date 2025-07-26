@@ -1,0 +1,58 @@
+[info]
+type = "order-items"
+en = "Unscramble the sentence."
+vn = "Sắp xếp từ thành câu."
+outcome = ""
+
+
+[question]
+text = ""
+picture = "Write unscramble-09.png"
+audio = ""
+pdf = ""
+
+
+[item 00]
+text = "There are"
+picture = ""
+audio = ""
+
+
+[id]
+0 = "09"
+
+
+[source]
+0 = "content/lessons/SJ_A1_004/test"
+
+
+[item 01]
+text = "  eight "
+picture = ""
+audio = ""
+
+
+[item 02]
+text = " people"
+picture = ""
+audio = ""
+
+
+[item 03]
+text = " in"
+picture = ""
+audio = ""
+
+
+[item 04]
+text = "my"
+picture = ""
+audio = ""
+
+
+[item 05]
+text = "family."
+picture = ""
+audio = ""
+
+

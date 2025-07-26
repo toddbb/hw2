@@ -1,0 +1,49 @@
+[info]
+type = "multiple-choice"
+en = "Read and choose."
+vn = "Đọc và chọn câu trả lời đúng."
+outcome = ""
+multiple = ""
+assisted = ""
+
+
+[question]
+text = "Is Uncle John thirty years old?"
+picture = ""
+audio = ""
+pdf = "Reading text.pdf"
+
+
+[answer 00]
+correct = "yes"
+picture = ""
+text = "No, he isn't."
+audio = ""
+
+
+[id]
+0 = "04"
+
+
+[source]
+0 = "content/lessons/SJ_A1_004/test"
+
+
+[answer 01]
+correct = "no"
+picture = ""
+text = "Yes, he's happy."
+audio = ""
+
+
+[answer 02]
+correct = "no"
+picture = ""
+text = "Yes, he is."
+audio = ""
+
+
+[changed]
+0 = "1"
+
+

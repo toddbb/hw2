@@ -1,0 +1,39 @@
+[info]
+type = "fill-blanks"
+en = "Read and write 'Yes' or 'No'."
+vn = "Đọc và viết 'Yes' hoặc 'No'."
+outcome = ""
+assisted = "no"
+
+
+[question]
+text = ""
+picture = "Reading text 2 YES - NO-03.png"
+audio = ""
+pdf = ""
+
+
+[paragraph 00]
+text = "4. {Yes}"
+
+
+[id]
+0 = "08"
+
+
+[source]
+0 = "content/lessons/SJ_A1_004/test"
+
+
+[paragraph 01]
+text = "5. {No}"
+
+
+[paragraph 02]
+text = "3. {Yes}"
+
+
+[changed]
+0 = "1"
+
+
