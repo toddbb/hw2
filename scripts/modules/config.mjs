@@ -9,6 +9,13 @@ export const Config = {
    SESSION_STORAGE_PREFIX: "myapp", // TO DO: Change this to a unique prefix for this app
    DefaultLesson: "SJ_A1_004", /// temp global; later, it can be selected
    DefaultSheetNum: 0, /// temp global; later, it can be selected
+   Messages: {
+      Footer: {
+         correct: "Correct. Great job!",
+         almost: "Almost! Try again later.",
+         incorrect: "Incorrect. Try again later.",
+      },
+   },
 };
 
 // Detect environment and set base URL

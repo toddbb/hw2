@@ -47,19 +47,7 @@ div[data-uid="layer-front"] {
     height: 100vh;
 }
 
-/******************* HOMEWORK CONTAINER *******************/
-.progress-bar {    
-    position: relative;
-    height: 10px;
-    background: rgb(238, 238, 238);
-    border-radius: 4px;
-    overflow: hidden;
-    flex: 1 1 0%;
-    width: 80vw;
-    max-width: 300px;
-}
-
-/******************* HOMEWORK CONTAINER *******************/
+/******************* HEADER *******************/
 .hw-header {
     height: 60px;
 }
@@ -69,6 +57,18 @@ div[data-uid="layer-front"] {
 }
 .hw-footer {
     height: 80px;
+}
+
+
+.progress-bar {    
+    position: relative;
+    height: 10px;
+    background: rgb(238, 238, 238);
+    border-radius: 4px;
+    overflow: hidden;
+    flex: 1 1 0%;
+    width: 80vw;
+    max-width: 300px;
 }
 
 
@@ -123,6 +123,27 @@ div[data-uid="layer-front"] {
 }
 
 
+
+/* Media element common styles */
+.media-element {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.media-type-img {
+    max-height: 400px;
+    width: auto;
+}
+
+.media-type-iframe {
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    min-height: 400px;
+}
+
+
+
 /**************** HOMEWORK MAIN SECTION RIGHT ********************/
 .hw-main-response-text {
     font-size: 1.4rem;
@@ -170,13 +191,19 @@ div[data-uid="layer-front"] {
     font-size: 1.2rem;
 }
 .fill-blanks-item {
+    position: relative;
     display: flex;
     align-items: end;
     flex-wrap: wrap;
     
 }
+.fill-blanks-spanItem {
+    position: relative;
+    display: inline-block;
+}
 .fill-blanks-inputItem {
-    padding: 0px 6px 0px 6px;
+    position: relative;
+    padding: 0px 30px 0px 6px; /* Add right padding for question mark */
     margin: 0px 2px 0px 6px;
     font-size: 1.2rem;
     background-color: transparent;
@@ -206,6 +233,28 @@ div[data-uid="layer-front"] {
     background-color: var(--incorrect);
     border-bottom: 2px solid #e53935;
     color: #c62828;
+}
+
+/* Question mark pseudo element for incorrect fill-blanks */
+.fill-blanks-spanItem.has-incorrect-input::after {
+    content: "?";
+    position: absolute;
+    color: #5d5d61;
+    display: block;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    background-color: #b6b1ff;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    text-align: center;
+    border: 1px solid #999;
+    line-height: 18px;
+    font-size: 12px;
+    font-weight: bold;
+    opacity: 0.8;
 }
 
 .fill-blanks-inputItem.almost {
@@ -256,13 +305,20 @@ div[data-uid="layer-front"] {
     gap: 16px;
     flex-wrap: wrap;
 }
+.open-answers-subcontainer {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+}
 .open-answers-prepend {
     display: flex;
     align-items: center;
     justify-content: start;
 }
 input.open-answers-item {
-    padding: 0px 6px 0px 6px;
+    position: relative;
+    padding: 0px 30px 0px 6px; /* Add right padding for question mark */
     margin: 0px 2px 0px 6px;
     font-size: 1.2rem;
     background-color: transparent;
@@ -293,6 +349,28 @@ input.open-answers-item {
     background-color: var(--incorrect);
     border-bottom: 2px solid #e53935;
     color: #c62828;
+}
+
+/* Question mark pseudo element for incorrect open-answers */
+.open-answers-subcontainer.has-incorrect-input::after {
+    content: "?";
+    position: absolute;
+    color: #5d5d61;
+    display: block;
+    right: 5px;
+    top: 50%;
+    transform: translateY(50%);
+    cursor: pointer;
+    background-color: #b6b1ff;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    text-align: center;
+    border: 1px solid #999;
+    line-height: 18px;
+    font-size: 12px;
+    font-weight: bold;
+    opacity: 0.8;
 }
 
 .open-answers-item.almost {
@@ -358,6 +436,27 @@ input.open-answers-item {
     background-color: var(--incorrect);
 }
 
+.hw-footer-buttons-left,
+.hw-footer-buttons-right {
+    width: 120px;
+}
+
+.hw-btn-show-answers {
+    border-radius: 20px;
+    background-color: #8888d3;
+    color: white;
+    cursor: pointer;
+}
+
+.hw-btn-show-answers.show-answers {
+    background-color: #8888d3;
+    color: white;
+}
+
+.hw-btn-show-answers.hide-answers {
+    background-color: rgb(56, 56, 59);
+}
+
 
 .feedback-icon {
     fill: var(--gray-300);
@@ -412,6 +511,55 @@ input.open-answers-item {
 }
 
 
+
+/***************************************************************************/
+/***********             LAZY LOADING STYLES            ********************/
+/***************************************************************************/
+
+/* Lazy loading placeholder styling */
+.lazy-loading {
+    opacity: 0.7;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.lazy-loading.media-type-img {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    min-height: 100px; /* Prevent layout shift */
+}
+
+.lazy-loading.media-type-iframe {
+    background: #f8f9fa;
+    position: relative;
+}
+
+.lazy-loading.media-type-iframe::before {
+    content: 'Loading...';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.lazy-loaded {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Shimmer animation for loading images */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+
 /***************************************************************************/
 /***********       CLASSES CASCADED LAST          *************************/
 /***************************************************************************/
@@ -432,6 +580,10 @@ input.open-answers-item {
    display: none !important;
 }
 
+.hidden {
+   visibility: hidden !important;
+}
+
 .novisible {
     visibility: hidden;
 }
@@ -446,6 +598,19 @@ input.open-answers-item {
 }
 
 /***************************************************************************/
+/***********             CONFETTI STYLES                 ********************/
+/***************************************************************************/
+
+/* Ensure confetti canvas appears above other elements */
+canvas[style*="pointer-events: none"] {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    z-index: 9999 !important;
+    pointer-events: none !important;
+}
+
+/***************************************************************************/
 /***********         RESPONSIVE MEDIA QUERIES     *************************/
 /***************************************************************************/
 
@@ -456,33 +621,22 @@ input.open-answers-item {
 }
 
 @media screen and (max-width: 1280px) {
-    .modal-activity {
+    /* .modal-activity {
         background-color: rgb(244, 255, 244);
-    }
+    } */
 }
 
 @media screen and (max-width: 1025px){
-    .modal-activity {
+    /* .modal-activity {
         background-color: rgb(250, 250, 255);
-    }
+    } */
 }
 
 
 @media screen and (max-width: 640px){
-    .modal-activity {
+    /* .modal-activity {
         background-color: rgb(255, 248, 249);
-    }
+    } */
 }
 
 
-@media only screen and (max-width: 992px) {
-}
-
-@media only screen and (max-width: 767px) {
-}
-
-@media only screen and (max-width: 575px) {
-}
-
-@media only screen and (max-width: 375px) {
-}

@@ -7,6 +7,7 @@ import { Config } from "./modules/config.mjs";
 import { domManager } from "./modules/domManager.mjs";
 import { eventManager } from "./modules/eventManager.mjs";
 import { homework } from "./modules/homework.mjs";
+import { cleanupLazyLoading } from "./modules/utils.mjs";
 import { viewController } from "./modules/viewController.mjs";
 
 /**
@@ -61,6 +62,7 @@ class Application {
       eventManager.on("homework-click", this.handleHomeworkClick.bind(this));
       eventManager.on("skip-question", this.handleSkipQuestion.bind(this));
       eventManager.on("control-action", this.handleControlAction.bind(this));
+      eventManager.on("show-answers", this.handleShowAnswers.bind(this));
    }
 
    /**
@@ -156,6 +158,13 @@ class Application {
    }
 
    /**
+    * Handle show answers action
+    */
+   handleShowAnswers() {
+      homework.handleShowAnswers();
+   }
+
+   /**
     * Handle initialization errors
     * @param {Error} error
     */
@@ -183,6 +192,7 @@ ${error.stack}
     */
    cleanup() {
       eventManager.cleanup();
+      cleanupLazyLoading();
       this.initialized = false;
       console.log("🧹 Application cleaned up");
    }

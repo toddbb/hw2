@@ -36,6 +36,7 @@ export class EventManager {
       const modal = domManager.getElement("homework.modal");
       const skipBtn = domManager.getElement("homework.footer.btnSkip");
       const controlBtn = domManager.getElement("homework.footer.btnControl");
+      const showAnswersBtn = domManager.getElement("homework.footer.btnShowAnswers");
 
       if (modal) {
          this.addListener(modal, "click", this.handleHomeworkClick.bind(this));
@@ -47,6 +48,10 @@ export class EventManager {
 
       if (controlBtn) {
          this.addListener(controlBtn, "click", this.handleControlClick.bind(this));
+      }
+
+      if (showAnswersBtn) {
+         this.addListener(showAnswersBtn, "click", this.handleShowAnswersClick.bind(this));
       }
    }
 
@@ -109,6 +114,14 @@ export class EventManager {
     */
    handleControlClick(event) {
       this.emit("control-action", event);
+   }
+
+   /**
+    * Handle show answers button click
+    * @param {Event} event
+    */
+   handleShowAnswersClick(event) {
+      this.emit("show-answers");
    }
 
    /**

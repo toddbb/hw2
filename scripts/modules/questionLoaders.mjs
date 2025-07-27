@@ -38,6 +38,7 @@ export class QuestionTypeLoaders {
       const container = QuestionTypeHelpers.createContainer(data);
       const responses = QuestionTypeHelpers.extractKeys("paragraph", data);
 
+      // div container
       const options = {
          classes: ["answer-item", "fill-blanks-item", "fit-text"],
          parent: container,
@@ -47,6 +48,7 @@ export class QuestionTypeLoaders {
          options.id = `paragraph-${String(index).padStart(2, "0")}`;
          const responseContainer = Utils._createElement("div", options);
 
+         // <p> or <input> elements
          const inlineOptions = {
             text: {
                classes: ["fill-blanks-textItem"],
@@ -54,7 +56,6 @@ export class QuestionTypeLoaders {
             },
             input: {
                classes: ["fill-blanks-inputItem"],
-               parent: responseContainer,
                attributes: {
                   type: "input",
                   autocomplete: "off",
@@ -69,6 +70,14 @@ export class QuestionTypeLoaders {
                inlineOptions.text.textContent = item.value;
                Utils._createElement("p", inlineOptions.text);
             } else if (item.type === "braced") {
+               // create span element for input
+               const spanOptions = {
+                  classes: ["fill-blanks-spanItem"],
+                  parent: responseContainer,
+               };
+
+               const span = Utils._createElement("span", spanOptions);
+               inlineOptions.input.parent = span;
                inlineOptions.input.id = `input-${String(index).padStart(2, "0")}-${String(itemIndex).padStart(2, "0")}`;
                inlineOptions.input.attributes["data-akey"] = item.value;
                Utils._createElement("input", inlineOptions.input);

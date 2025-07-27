@@ -91,6 +91,7 @@ export class DomManager {
          feedbackIconThumbsUp: document.querySelector(".feedback-icon-thumbs-up"),
          btnSkip: document.querySelector(".hw-btn-skip"),
          btnControl: document.querySelector(".hw-btn-control"),
+         btnShowAnswers: document.querySelector(".hw-btn-show-answers"),
       };
    }
 

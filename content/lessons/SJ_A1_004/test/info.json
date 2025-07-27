@@ -14,7 +14,7 @@
             "text": "What's my aunt's name?",
             "picture": "",
             "audio": "",
-            "pdf": "Reading text 1-01.png"
+            "pdf": "Reading text 1-01.webp"
          },
          "answer 00": {
             "correct": "yes",
@@ -51,7 +51,7 @@
             "text": "How old is my aunt?",
             "picture": "",
             "audio": "",
-            "pdf": "Reading text 1-01.png"
+            "pdf": "Reading text 1-01.webp"
          },
          "answer 00": {
             "correct": "yes",
@@ -88,7 +88,7 @@
             "text": "What's my uncle's name?",
             "picture": "",
             "audio": "",
-            "pdf": "Reading text 1-01.png"
+            "pdf": "Reading text 1-01.webp"
          },
          "answer 00": {
             "correct": "yes",
@@ -125,7 +125,7 @@
             "text": "Is Uncle John thirty years old?",
             "picture": "",
             "audio": "",
-            "pdf": "Reading text 1-01.png"
+            "pdf": "Reading text 1-01.webp"
          },
          "answer 00": {
             "correct": "yes",
@@ -159,7 +159,7 @@
          },
          "question": {
             "text": "",
-            "picture": "Reading text 1-01.png",
+            "picture": "Reading text 1-01.webp",
             "audio": "",
             "pdf": ""
          },
@@ -183,7 +183,7 @@
          },
          "question": {
             "text": "",
-            "picture": "Reading text 1-01.png",
+            "picture": "Reading text 1-01.webp",
             "audio": "",
             "pdf": ""
          },
@@ -476,7 +476,7 @@
       }
    ],
    "resources": [
-      "Reading text 1-01.png",
+      "Reading text 1-01.webp",
       "Reading text 2 YES - NO-02.png",
       "Reading text 2 YES - NO-03.png",
       "Reading text.pdf",

@@ -140,8 +140,6 @@ export function _show(el) {
    _$runMainFunction(el, null, func);
 }
 
-
-
 /// hide entire HTML collections, nodes, or single elements by adding class 'nodisplay'
 export function _notVisible(el) {
    const func = (element) => {
@@ -556,3 +554,147 @@ export const _log = (msg, val) => {
 const _error = (msg) => {
    console.error(`[${MY_APP}] ${msg}`);
 };
+
+/**
+ * Lazy Loading Manager - uses Intersection Observer for efficient lazy loading
+ */
+class LazyLoadManager {
+   constructor() {
+      this.observer = null;
+      this.init();
+   }
+
+   init() {
+      // Check if Intersection Observer is supported
+      if (!("IntersectionObserver" in window)) {
+         console.warn("Intersection Observer not supported, falling back to immediate loading");
+         return;
+      }
+
+      this.observer = new IntersectionObserver(
+         (entries) => {
+            entries.forEach((entry) => {
+               if (entry.isIntersecting) {
+                  this.loadElement(entry.target);
+                  this.observer.unobserve(entry.target);
+               }
+            });
+         },
+         {
+            // Load when element is 100px away from viewport
+            rootMargin: "100px 0px",
+            threshold: 0.01,
+         }
+      );
+   }
+
+   loadElement(element) {
+      if (element.tagName === "IMG") {
+         const dataSrc = element.getAttribute("data-src");
+         if (dataSrc) {
+            element.src = dataSrc;
+            element.removeAttribute("data-src");
+            element.classList.remove("lazy-loading");
+            element.classList.add("lazy-loaded");
+         }
+      } else if (element.tagName === "IFRAME") {
+         const dataSrc = element.getAttribute("data-src");
+         if (dataSrc) {
+            element.src = dataSrc;
+            element.removeAttribute("data-src");
+            element.classList.remove("lazy-loading");
+            element.classList.add("lazy-loaded");
+         }
+      }
+   }
+
+   observe(element) {
+      if (this.observer) {
+         element.classList.add("lazy-loading");
+         this.observer.observe(element);
+      } else {
+         // Fallback: load immediately if observer not supported
+         this.loadElement(element);
+      }
+   }
+
+   disconnect() {
+      if (this.observer) {
+         this.observer.disconnect();
+      }
+   }
+}
+
+// Create singleton instance
+const lazyLoadManager = new LazyLoadManager();
+
+/**
+ * Enable lazy loading for an image or iframe element
+ * @param {HTMLElement} element - The element to lazy load
+ * @param {string} src - The source URL to load when element becomes visible
+ */
+export function enableLazyLoading(element, src) {
+   if (!element || !src) return element;
+
+   const tagName = element.tagName.toLowerCase();
+   if (tagName !== "img" && tagName !== "iframe") {
+      console.warn("Lazy loading only supported for img and iframe elements");
+      return element;
+   }
+
+   // Set data-src instead of src for lazy loading
+   element.setAttribute("data-src", src);
+
+   // Add loading placeholder/spinner classes
+   element.classList.add("lazy-loading");
+
+   // Set a placeholder for images
+   if (tagName === "img") {
+      // Use a 1x1 transparent pixel as placeholder
+      element.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+      element.setAttribute("alt", element.getAttribute("alt") || "Loading...");
+   }
+
+   // Start observing the element
+   lazyLoadManager.observe(element);
+
+   return element;
+}
+
+/**
+ * Disconnect lazy loading observer (cleanup)
+ */
+export function cleanupLazyLoading() {
+   lazyLoadManager.disconnect();
+}
+
+/**
+ * Initialize lazy loading for existing images and iframes in the DOM
+ * @param {HTMLElement} container - Container to search for lazy-loadable elements (default: document)
+ */
+export function initLazyLoadingForExistingElements(container = document) {
+   const images = container.querySelectorAll("img[data-src], iframe[data-src]");
+   images.forEach((element) => {
+      const src = element.getAttribute("data-src");
+      if (src) {
+         enableLazyLoading(element, src);
+      }
+   });
+}
+
+/**
+ * Add lazy loading to existing images by converting src to data-src
+ * @param {HTMLElement} container - Container to search for images (default: document)
+ */
+export function convertExistingImagesToLazyLoad(container = document) {
+   const images = container.querySelectorAll("img[src]:not([data-src])");
+   images.forEach((img) => {
+      const src = img.src;
+      if (src && !src.startsWith("data:")) {
+         img.setAttribute("data-src", src);
+         img.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+         img.classList.add("lazy-loading");
+         lazyLoadManager.observe(img);
+      }
+   });
+}

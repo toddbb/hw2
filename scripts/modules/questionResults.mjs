@@ -20,9 +20,9 @@ export class QuestionTypeResults {
          }
 
          const isCorrect = selected.dataset.akey === "correct-yes";
-         const correctElement = selected.parentNode.querySelector('.multiple-choice-item[data-akey="correct-yes"]');
 
-         homework.handleResult(isCorrect, selected, correctElement);
+         // For multiple choice, don't pass correctElement to prevent adding .correct class
+         homework.handleResult(isCorrect, selected);
       },
    };
 
@@ -46,9 +46,21 @@ export class QuestionTypeResults {
                correctCount++;
                input.classList.add("correct");
                input.classList.remove("incorrect", "almost");
+               // Add class to parent span for pseudo element styling
+               const parentSpan = input.parentElement;
+               if (parentSpan && parentSpan.classList.contains("fill-blanks-spanItem")) {
+                  parentSpan.classList.add("has-correct-input");
+                  parentSpan.classList.remove("has-incorrect-input", "has-almost-input");
+               }
             } else {
                input.classList.add("incorrect");
                input.classList.remove("correct", "almost");
+               // Add class to parent span for pseudo element styling
+               /* const parentSpan = input.parentElement;
+               if (parentSpan && parentSpan.classList.contains("fill-blanks-spanItem")) {
+                  parentSpan.classList.add("has-incorrect-input");
+                  parentSpan.classList.remove("has-correct-input", "has-almost-input");
+               } */
             }
          });
 
@@ -167,14 +179,27 @@ export class QuestionTypeResults {
 
             console.log(`Checking input: "${userAnswer}" against expected: "${expectedAnswers}"`);
 
+            // Get parent container for pseudo element styling
+            const parentContainer = input.closest(".open-answers-subcontainer");
+
             // Apply visual feedback to individual input
             if (userAnswer === expectedAnswers) {
                correctCount++;
                input.classList.add("correct");
                input.classList.remove("incorrect", "almost");
+               // Add class to parent for pseudo element styling
+               if (parentContainer) {
+                  parentContainer.classList.add("has-correct-input");
+                  parentContainer.classList.remove("has-incorrect-input", "has-almost-input");
+               }
             } else {
                input.classList.add("incorrect");
                input.classList.remove("correct", "almost");
+               // Add class to parent for pseudo element styling
+               if (parentContainer) {
+                  parentContainer.classList.add("has-incorrect-input");
+                  parentContainer.classList.remove("has-correct-input", "has-almost-input");
+               }
             }
          });
 

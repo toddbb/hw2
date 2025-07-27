@@ -22,7 +22,7 @@ export const Media = {
       }
    },
 
-   async createElement(blob, options) {
+   async createElement(blob, options = {}) {
       let elementType;
 
       // convert pdf to image, if declared in options
@@ -33,23 +33,39 @@ export const Media = {
       const url = URL.createObjectURL(blob);
       let elementOptions = {
          classes: ["media-element"],
-         attributes: {
-            src: url,
-         },
+         attributes: {},
       };
 
       if (blob.type === "application/pdf") {
          // Embed the PDF
          elementType = "iframe";
-         elementOptions.attributes.src = `${url}#toolbar=0&navpanes=0&scrollbar=0`;
          elementOptions.attributes.frameborder = "0";
+
+         // Use lazy loading for PDFs if enabled
+         if (options.lazyLoad !== false) {
+            // Will be set via enableLazyLoading
+            elementOptions.attributes["data-src"] = `${url}#toolbar=0&navpanes=0&scrollbar=0`;
+         } else {
+            elementOptions.attributes.src = `${url}#toolbar=0&navpanes=0&scrollbar=0`;
+         }
       } else if (blob.type.startsWith("image/")) {
          // Display image
          elementType = "img";
          elementOptions.attributes.alt = "Image preview";
+
+         // Use lazy loading for images if enabled (default: true)
+         if (options.lazyLoad !== false) {
+            // Will be set via enableLazyLoading
+            elementOptions.attributes["data-src"] = url;
+            // Add native lazy loading as fallback
+            elementOptions.attributes.loading = "lazy";
+         } else {
+            elementOptions.attributes.src = url;
+         }
       } else if (blob.type.startsWith("audio/")) {
          // Play audio
          elementType = "audio";
+         elementOptions.attributes.src = url;
       } else {
          // Fallback to text with warning
          elementType = "div";
@@ -57,7 +73,15 @@ export const Media = {
       }
 
       elementOptions.classes.push(`media-type-${elementType}`);
-      return Utils._createElement(elementType, elementOptions);
+      const element = Utils._createElement(elementType, elementOptions);
+
+      // Enable lazy loading for images and iframes if option is not disabled
+      if (options.lazyLoad !== false && (elementType === "img" || elementType === "iframe")) {
+         const src = elementType === "iframe" ? `${url}#toolbar=0&navpanes=0&scrollbar=0` : url;
+         Utils.enableLazyLoading(element, src);
+      }
+
+      return element;
    },
 
    async convertPDFtoImage(blob, maxWidth = 600) {

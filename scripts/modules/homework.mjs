@@ -196,6 +196,89 @@ export class Homework {
    }
 
    /**
+    * Handle show answers action
+    */
+   handleShowAnswers() {
+      console.log("🔍 Show answers clicked");
+
+      const btnShowAnswers = domManager.getElement("homework.footer.btnShowAnswers");
+
+      if (!btnShowAnswers) {
+         console.warn("Show answers button not found");
+         return;
+      }
+
+      const questionType = sheet.questionType;
+
+      if (!questionType) {
+         console.warn("No question type found for show answers");
+         return;
+      }
+
+      // Toggle button state based on current text
+      const isCurrentlyShowing = btnShowAnswers.textContent === "Show Answers";
+
+      if (isCurrentlyShowing) {
+         // Switch to "Hide Answers" mode
+         btnShowAnswers.textContent = "Hide Answers";
+         btnShowAnswers.classList.remove("show-answers");
+         btnShowAnswers.classList.add("hide-answers");
+
+         // Show answers for the current question type
+         switch (questionType) {
+            case "multiple-choice":
+               this.showMultipleChoiceAnswer();
+               break;
+            default:
+               console.log(`Show answers not yet implemented for question type: ${questionType}`);
+               break;
+         }
+      } else {
+         // Switch to "Show Answers" mode
+         btnShowAnswers.textContent = "Show Answers";
+         btnShowAnswers.classList.remove("hide-answers");
+         btnShowAnswers.classList.add("show-answers");
+
+         // Hide answers for the current question type
+         switch (questionType) {
+            case "multiple-choice":
+               this.hideMultipleChoiceAnswer();
+               break;
+            default:
+               console.log(`Hide answers not yet implemented for question type: ${questionType}`);
+               break;
+         }
+      }
+   }
+   /**
+    * Show correct answer for multiple choice questions
+    */
+   showMultipleChoiceAnswer() {
+      const correctElement = document.querySelector('.multiple-choice-item[data-akey="correct-yes"]');
+
+      if (correctElement) {
+         correctElement.classList.add("correct");
+         console.log("✅ Multiple choice correct answer highlighted");
+      } else {
+         console.warn("Could not find correct answer element for multiple choice");
+      }
+   }
+
+   /**
+    * Hide correct answer for multiple choice questions
+    */
+   hideMultipleChoiceAnswer() {
+      const correctElement = document.querySelector('.multiple-choice-item[data-akey="correct-yes"]');
+
+      if (correctElement) {
+         correctElement.classList.remove("correct");
+         console.log("🔒 Multiple choice correct answer hidden");
+      } else {
+         console.warn("Could not find correct answer element for multiple choice");
+      }
+   }
+
+   /**
     * Check current question
     */
    checkCurrentQuestion() {
@@ -205,6 +288,10 @@ export class Homework {
          console.warn("No question type found in Sheet.questionType.");
          return;
       }
+
+      // Hide skip button when checking
+      const btnSkip = domManager.getElement("homework.footer.btnSkip");
+      btnSkip.classList.add("nodisplay");
 
       QuestionTypes.checkResult(questionType);
    }
@@ -499,9 +586,55 @@ export class Footer {
       const trophyIcon = domManager.getElement("homework.footer.feedbackIconTrophy");
 
       container.classList.add("correct");
-      feedbackText.textContent = "Correct!";
+      feedbackText.textContent = Config.Messages.Footer.correct;
       Utils._addClass(feedbackText, "correct");
       Utils._show(trophyIcon);
+
+      // Trigger confetti animation for correct answers
+      this.triggerConfetti();
+   }
+
+   /**
+    * Trigger confetti animation
+    */
+   triggerConfetti() {
+      // Check if confetti library is available
+      if (typeof confetti === "undefined") {
+         console.warn("Confetti library not loaded");
+         return;
+      }
+
+      // Get footer container for confetti origin
+      const container = domManager.getElement("homework.footer.container");
+      const rect = container.getBoundingClientRect();
+
+      // Calculate origin point (center of footer)
+      const originX = (rect.left + rect.width / 2) / window.innerWidth;
+      const originY = (rect.top + rect.height / 2) / window.innerHeight;
+
+      // Launch confetti from footer
+      confetti({
+         particleCount: 30,
+         spread: 45,
+         origin: { x: originX, y: originY },
+         colors: ["#00c853", "#4caf50", "#66bb6a"],
+         startVelocity: 20,
+         gravity: 0.8,
+         scalar: 0.8,
+      });
+
+      // Additional confetti burst after a short delay
+      setTimeout(() => {
+         confetti({
+            particleCount: 30,
+            spread: 45,
+            origin: { x: originX, y: originY },
+            colors: ["#ffd700", "#ffeb3b"],
+            startVelocity: 15,
+            gravity: 0.8,
+            scalar: 0.7,
+         });
+      }, 200);
    }
 
    /**
@@ -511,11 +644,17 @@ export class Footer {
       const container = domManager.getElement("homework.footer.container");
       const feedbackText = domManager.getElement("homework.footer.feedbackText");
       const thumbsUpIcon = domManager.getElement("homework.footer.feedbackIconThumbsUp");
+      const btnShowAnswers = domManager.getElement("homework.footer.btnShowAnswers");
 
       container.classList.add("incorrect");
-      feedbackText.textContent = "Incorrect. Try again later.";
+      feedbackText.textContent = Config.Messages.Footer.incorrect;
       Utils._addClass(feedbackText, "incorrect");
       Utils._show(thumbsUpIcon);
+
+      // Show the "Show Answers" button for incorrect answers
+      if (btnShowAnswers) {
+         btnShowAnswers.classList.remove("nodisplay");
+      }
    }
 
    /**
@@ -525,11 +664,17 @@ export class Footer {
       const container = domManager.getElement("homework.footer.container");
       const feedbackText = domManager.getElement("homework.footer.feedbackText");
       const thumbsUpIcon = domManager.getElement("homework.footer.feedbackIconThumbsUp");
+      const btnShowAnswers = domManager.getElement("homework.footer.btnShowAnswers");
 
       container.classList.add("almost");
-      feedbackText.textContent = "Almost! You got some correct.";
+      feedbackText.textContent = Config.Messages.Footer.almost;
       Utils._addClass(feedbackText, "almost");
       Utils._show(thumbsUpIcon);
+
+      // Show the "Show Answers" button for almost correct answers
+      if (btnShowAnswers) {
+         btnShowAnswers.classList.remove("nodisplay");
+      }
    }
 
    /**
@@ -538,6 +683,8 @@ export class Footer {
    reset() {
       const container = domManager.getElement("homework.footer.container");
       const btnControl = domManager.getElement("homework.footer.btnControl");
+      const btnSkip = domManager.getElement("homework.footer.btnSkip");
+      const btnShowAnswers = domManager.getElement("homework.footer.btnShowAnswers");
       const feedbackText = domManager.getElement("homework.footer.feedbackText");
       const trophyIcon = domManager.getElement("homework.footer.feedbackIconTrophy");
       const thumbsUpIcon = domManager.getElement("homework.footer.feedbackIconThumbsUp");
@@ -549,6 +696,17 @@ export class Footer {
       btnControl.classList.remove("mode-next");
       btnControl.classList.add("mode-check");
       btnControl.textContent = "Check";
+
+      // Show skip button again
+      btnSkip.classList.remove("nodisplay");
+
+      // Reset show answers button
+      if (btnShowAnswers) {
+         btnShowAnswers.classList.add("nodisplay");
+         btnShowAnswers.textContent = "Show Answers";
+         btnShowAnswers.classList.remove("hide-answers");
+         btnShowAnswers.classList.add("show-answers");
+      }
 
       // Reset feedback elements
       feedbackText.textContent = "";
