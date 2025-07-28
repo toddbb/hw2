@@ -36,13 +36,19 @@ export class QuestionTypeResults {
          let totalCount = inputs.length;
 
          inputs.forEach((input) => {
-            const expectedAnswer = QuestionTypeHelpers.normalizeStringsToCompare(input.dataset.akey);
+            const expectedAnswerString = input.dataset.akey;
             const userAnswer = QuestionTypeHelpers.normalizeStringsToCompare(input.value);
 
-            console.log(`Checking input: "${userAnswer}" against expected: "${expectedAnswer}"`);
+            // Split possible answers by "/" and normalize each one
+            const possibleAnswers = expectedAnswerString.split("/").map((answer) => QuestionTypeHelpers.normalizeStringsToCompare(answer.trim()));
+
+            console.log(`Checking input: "${userAnswer}" against possible answers: [${possibleAnswers.map((a) => `"${a}"`).join(", ")}]`);
+
+            // Check if user answer matches any of the possible answers
+            const isCorrect = possibleAnswers.some((expectedAnswer) => userAnswer === expectedAnswer);
 
             // Apply visual feedback to individual input
-            if (userAnswer === expectedAnswer) {
+            if (isCorrect) {
                correctCount++;
                input.classList.add("correct");
                input.classList.remove("incorrect", "almost");
@@ -174,32 +180,25 @@ export class QuestionTypeResults {
          let totalCount = inputs.length;
 
          inputs.forEach((input) => {
-            const expectedAnswers = QuestionTypeHelpers.normalizeStringsToCompare(input.dataset.akey);
+            const expectedAnswersString = input.dataset.akey;
             const userAnswer = QuestionTypeHelpers.normalizeStringsToCompare(input.value);
 
-            console.log(`Checking input: "${userAnswer}" against expected: "${expectedAnswers}"`);
+            // Split possible answers by "/" and normalize each one
+            const possibleAnswers = expectedAnswersString.split("/").map((answer) => QuestionTypeHelpers.normalizeStringsToCompare(answer.trim()));
 
-            // Get parent container for pseudo element styling
-            const parentContainer = input.closest(".open-answers-subcontainer");
+            console.log(`Checking input: "${userAnswer}" against possible answers: [${possibleAnswers.map((a) => `"${a}"`).join(", ")}]`);
+
+            // Check if user answer matches any of the possible answers
+            const isCorrect = possibleAnswers.some((expectedAnswer) => userAnswer === expectedAnswer);
 
             // Apply visual feedback to individual input
-            if (userAnswer === expectedAnswers) {
+            if (isCorrect) {
                correctCount++;
                input.classList.add("correct");
                input.classList.remove("incorrect", "almost");
-               // Add class to parent for pseudo element styling
-               if (parentContainer) {
-                  parentContainer.classList.add("has-correct-input");
-                  parentContainer.classList.remove("has-incorrect-input", "has-almost-input");
-               }
             } else {
                input.classList.add("incorrect");
                input.classList.remove("correct", "almost");
-               // Add class to parent for pseudo element styling
-               if (parentContainer) {
-                  parentContainer.classList.add("has-incorrect-input");
-                  parentContainer.classList.remove("has-correct-input", "has-almost-input");
-               }
             }
          });
 

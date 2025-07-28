@@ -16,6 +16,7 @@ export class EventManager {
    init() {
       this.setupStartViewEvents();
       this.setupHomeworkEvents();
+      this.setupResultsViewEvents();
       console.log("Event Manager initialized");
    }
 
@@ -52,6 +53,22 @@ export class EventManager {
 
       if (showAnswersBtn) {
          this.addListener(showAnswersBtn, "click", this.handleShowAnswersClick.bind(this));
+      }
+   }
+
+   /**
+    * Setup events for results view
+    */
+   setupResultsViewEvents() {
+      const retryBtn = domManager.getElement("resultsView.btnRetry");
+      const quitBtn = domManager.getElement("resultsView.btnQuit");
+
+      if (retryBtn) {
+         this.addListener(retryBtn, "click", this.handleRetryClick.bind(this));
+      }
+
+      if (quitBtn) {
+         this.addListener(quitBtn, "click", this.handleQuitClick.bind(this));
       }
    }
 
@@ -122,6 +139,22 @@ export class EventManager {
     */
    handleShowAnswersClick(event) {
       this.emit("show-answers");
+   }
+
+   /**
+    * Handle retry button click
+    * @param {Event} event
+    */
+   handleRetryClick(event) {
+      this.emit("try-missed-questions");
+   }
+
+   /**
+    * Handle quit button click
+    * @param {Event} event
+    */
+   handleQuitClick(event) {
+      this.emit("quit-homework");
    }
 
    /**

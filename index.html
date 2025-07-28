@@ -13,7 +13,7 @@
    <body>
       <div class="wrapper flex-col justify-center items-center h-full">
          <!-- Start View -->
-         <div class="view-start nodisplay flex-col justify-center align-center h-full w-full">
+         <div class="view-start nodisplay flex-col justify-center align-center h-full">
             <button class="btn btn-primary">Start</button>
          </div>
 
@@ -24,6 +24,9 @@
                   <!-- Header -->
                   <header class="hw-header flex-row justify-center items-center">
                      <div class="progress-bar-container"></div>
+                     <div class="header-retry flex-row items-center justify-center gap-2 nodisplay">
+                        <h3 class="header-retry-text"><span class="header-retry-question-type"></span>Question<span class="nodisplay header-retry-question-num"></span></h3>
+                     </div>
                   </header>
 
                   <!-- Main Content -->
@@ -49,7 +52,7 @@
                   <footer class="hw-footer flex-col justify-center items-center">
                      <div class="hw-footer-grid-container">
                         <!-- Left Actions -->
-                        <div class="hw-footer-buttons-left">
+                        <div class="hw-footer-buttons-left flex-row justify-end">
                            <button class="btn hw-btn-skip">Skip</button>
                            <button class="btn hw-btn-show-answers nodisplay">Show Answers</button>
                         </div>
@@ -70,7 +73,7 @@
                         </div>
 
                         <!-- Right Actions -->
-                        <div class="hw-footer-buttons-right">
+                        <div class="hw-footer-buttons-right flex-row justify-start">
                            <button class="btn hw-btn-control mode-check active">Check</button>
                         </div>
                      </div>
@@ -81,7 +84,39 @@
 
          <!-- Results View -->
          <div class="view-results nodisplay flex-col justify-center items-center h-full w-full">
-            <h1>TO DO: Handle results here....</h1>
+            <div class="results-container flex-col items-center">
+               <!-- Title Message -->
+               <h1 class="results-title">Homework Complete!</h1>
+
+               <!-- Final Score -->
+               <div class="results-final-score">
+                  <h2 class="final-score-text">Final Score: <span class="final-score-value">0 / 0</span></h2>
+               </div>
+
+               <!-- Scores Grid -->
+               <div class="results-scores-container">
+                  <div class="scores-grid">
+                     <div class="score-item">
+                        <div class="score-header correct">Correct</div>
+                        <div class="score-value correct" id="score-total">0</div>
+                     </div>
+                     <div class="score-item">
+                        <div class="score-header skipped">Skipped</div>
+                        <div class="score-value skipped" id="score-skipped">0</div>
+                     </div>
+                     <div class="score-item">
+                        <div class="score-header incorrect">Incorrect</div>
+                        <div class="score-value incorrect" id="score-incorrect">0</div>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Action Buttons -->
+               <div class="results-actions flex-row">
+                  <button class="btn btn-secondary results-btn-retry">Try Missed Questions</button>
+                  <button class="btn btn-primary results-btn-quit">Quit</button>
+               </div>
+            </div>
          </div>
       </div>
 

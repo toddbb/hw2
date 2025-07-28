@@ -16,13 +16,16 @@ export class QuestionTypeLoaders {
       const container = QuestionTypeHelpers.createContainer(data);
       const responses = QuestionTypeHelpers.extractKeys("answer", data);
 
+      // Shuffle the responses so the correct answer isn't always first
+      const responsesShuffled = Utils._shuffleArray([...responses]); // Create a copy before shuffling
+
       const options = {
          classes: ["answer-item", "multiple-choice-item", "fit-text"],
          parent: container,
          attributes: {},
       };
 
-      responses.forEach((answer, index) => {
+      responsesShuffled.forEach((answer, index) => {
          options.attributes["data-akey"] = `correct-${answer.correct}`;
          options.id = `answer-${String(index).padStart(2, "0")}`;
          options.textContent = answer.text;
@@ -48,17 +51,18 @@ export class QuestionTypeLoaders {
          options.id = `paragraph-${String(index).padStart(2, "0")}`;
          const responseContainer = Utils._createElement("div", options);
 
-         // <p> or <input> elements
+         // <p> or <textarea> elements
          const inlineOptions = {
             text: {
                classes: ["fill-blanks-textItem"],
                parent: responseContainer,
             },
-            input: {
+            textarea: {
                classes: ["fill-blanks-inputItem"],
                attributes: {
-                  type: "input",
                   autocomplete: "off",
+                  rows: "1",
+                  wrap: "soft",
                },
             },
          };
@@ -70,17 +74,17 @@ export class QuestionTypeLoaders {
                inlineOptions.text.textContent = item.value;
                Utils._createElement("p", inlineOptions.text);
             } else if (item.type === "braced") {
-               // create span element for input
+               /* // create span element for textarea
                const spanOptions = {
                   classes: ["fill-blanks-spanItem"],
                   parent: responseContainer,
-               };
+               }; */
 
-               const span = Utils._createElement("span", spanOptions);
-               inlineOptions.input.parent = span;
-               inlineOptions.input.id = `input-${String(index).padStart(2, "0")}-${String(itemIndex).padStart(2, "0")}`;
-               inlineOptions.input.attributes["data-akey"] = item.value;
-               Utils._createElement("input", inlineOptions.input);
+               /* const span = Utils._createElement("span", spanOptions); */
+               inlineOptions.textarea.parent = responseContainer;
+               inlineOptions.textarea.id = `textarea-${String(index).padStart(2, "0")}-${String(itemIndex).padStart(2, "0")}`;
+               inlineOptions.textarea.attributes["data-akey"] = item.value;
+               Utils._createElement("textarea", inlineOptions.textarea);
             }
          });
       });
@@ -136,11 +140,12 @@ export class QuestionTypeLoaders {
       const container = QuestionTypeHelpers.createContainer(data);
       const responses = QuestionTypeHelpers.extractKeys("answer", data);
 
-      const inputOptions = {
+      const textareaOptions = {
          classes: ["open-answers-item"],
          attributes: {
-            type: "text",
             autocomplete: "off",
+            rows: "1",
+            wrap: "soft",
          },
       };
 
@@ -175,11 +180,11 @@ export class QuestionTypeLoaders {
 
          Utils._createElement("div", prependOptions);
 
-         // Add text input
-         inputOptions.id = `open-answers-item-${String(index).padStart(2, "0")}`;
-         inputOptions.attributes["data-akey"] = response.answers;
-         inputOptions.parent = subcontainer;
-         Utils._createElement("input", inputOptions);
+         // Add textarea
+         textareaOptions.id = `open-answers-item-${String(index).padStart(2, "0")}`;
+         textareaOptions.attributes["data-akey"] = response.answers;
+         textareaOptions.parent = subcontainer;
+         Utils._createElement("textarea", textareaOptions);
       });
 
       // Unify the prepend widths for visual consistency

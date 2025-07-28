@@ -63,6 +63,8 @@ class Application {
       eventManager.on("skip-question", this.handleSkipQuestion.bind(this));
       eventManager.on("control-action", this.handleControlAction.bind(this));
       eventManager.on("show-answers", this.handleShowAnswers.bind(this));
+      eventManager.on("try-missed-questions", this.handleTryMissedQuestions.bind(this));
+      eventManager.on("quit-homework", this.handleQuitHomework.bind(this));
    }
 
    /**
@@ -162,6 +164,51 @@ class Application {
     */
    handleShowAnswers() {
       homework.handleShowAnswers();
+   }
+
+   /**
+    * Handle try missed questions action
+    */
+   async handleTryMissedQuestions() {
+      console.log("🔄 Try missed questions clicked");
+
+      // Check if button is disabled
+      const retryButton = document.querySelector(".results-btn-retry");
+      if (retryButton && retryButton.disabled) {
+         console.log("Retry button is disabled");
+         return;
+      }
+
+      const currentLesson = homework.lessonName;
+      const totalMissed = homework.incorrectSheets.length + homework.skippedSheets.length;
+
+      if (totalMissed === 0) {
+         console.log("No missed questions to retry");
+         return;
+      }
+
+      console.log(`📚 Starting retry mode with ${totalMissed} missed questions`);
+
+      // Switch to homework view first
+      viewController.show("homework");
+
+      // Start retry mode with the current lesson
+      const success = await homework.startRetryMode(currentLesson || "SJ_A1_004");
+
+      if (!success) {
+         console.warn("Failed to start retry mode");
+         viewController.show("results"); // Go back to results if failed
+      }
+   }
+   /**
+    * Handle quit homework action
+    */
+   handleQuitHomework() {
+      console.log("👋 Quit homework clicked");
+
+      // Reset homework and go back to start
+      homework.reset();
+      viewController.show("start");
    }
 
    /**

@@ -30,6 +30,15 @@ export class DomManager {
       this.elements.startView = {
          btnStart: document.querySelector(".view-start .btn"),
       };
+
+      this.elements.resultsView = {
+         btnRetry: document.querySelector(".results-btn-retry"),
+         btnQuit: document.querySelector(".results-btn-quit"),
+         finalScoreValue: document.querySelector(".final-score-value"),
+         scoreIncorrect: document.getElementById("score-incorrect"),
+         scoreSkipped: document.getElementById("score-skipped"),
+         scoreTotal: document.getElementById("score-total"),
+      };
    }
 
    /**
@@ -54,6 +63,12 @@ export class DomManager {
          container: document.querySelector(".hw-header"),
          progressBar: {
             container: document.querySelector(".progress-bar-container"),
+         },
+         retry: {
+            container: document.querySelector(".header-retry"),
+            type: document.querySelector(".header-retry-question-type"),
+            text: document.querySelector(".header-retry-text"),
+            questionNum: document.querySelector(".header-retry-question-num"),
          },
       };
    }
