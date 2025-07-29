@@ -298,6 +298,12 @@ export class Homework {
    async startRetryMode(lesson) {
       console.log("🔄 Starting retry mode for missed questions");
 
+      // Hide homework container immediately to prevent visual blip
+      const homeworkContainer = domManager.getElement("homework.main.container");
+      if (homeworkContainer) {
+         homeworkContainer.classList.add("hidden");
+      }
+
       this.missedQuestions = [];
 
       // Combine incorrect and skipped questions into missed questions array
@@ -308,6 +314,10 @@ export class Homework {
 
       if (this.missedQuestions.length === 0) {
          console.warn("No missed questions to retry");
+         // Restore visibility if no questions to retry
+         if (homeworkContainer) {
+            homeworkContainer.classList.remove("hidden");
+         }
          return false;
       }
 
@@ -324,10 +334,17 @@ export class Homework {
       this.info = await this.getInfo(lesson);
 
       if (!this.info) {
+         // Restore visibility on error
+         if (homeworkContainer) {
+            homeworkContainer.classList.remove("hidden");
+         }
          throw new Error("Failed to load homework info for retry");
       }
 
       this.resources = await Media.loadResources(this.info.resources, `lessons/${lesson}/test`);
+
+      // Update retry header BEFORE loading the sheet to prevent visual blip
+      header.updateRetryHeader();
 
       // Load the first missed question
       await sheet.load();
@@ -543,17 +560,17 @@ export class Homework {
             const storageKey = `fill-blanks-${index}`;
             this.userInputValues.set(storageKey, input.value);
 
-            // Get the first possible answer (in case there are multiple separated by "/")
-            const firstCorrectAnswer = correctAnswerString.split("/")[0].trim();
+            // Show the complete answer string without splitting
+            const completeAnswerString = correctAnswerString;
 
             // Add show-answers class and disable input
             input.classList.add("show-answers");
             input.disabled = true;
 
-            // Set the value to the first correct answer
-            input.value = firstCorrectAnswer;
+            // Set the value to the complete answer string
+            input.value = completeAnswerString;
 
-            console.log(`✅ Fill-blanks answer shown: "${firstCorrectAnswer}" (original: "${this.userInputValues.get(storageKey)}")`);
+            console.log(`✅ Fill-blanks answer shown: "${completeAnswerString}" (original: "${this.userInputValues.get(storageKey)}")`);
          }
       });
 
@@ -598,17 +615,17 @@ export class Homework {
             const storageKey = `open-answers-${index}`;
             this.userInputValues.set(storageKey, input.value);
 
-            // Get the first possible answer (in case there are multiple separated by "/")
-            const firstCorrectAnswer = correctAnswerString.split("/")[0].trim();
+            // Show the complete answer string without splitting
+            const completeAnswerString = correctAnswerString;
 
             // Add show-answers class and disable input
             input.classList.add("show-answers");
             input.disabled = true;
 
-            // Set the value to the first correct answer
-            input.value = firstCorrectAnswer;
+            // Set the value to the complete answer string
+            input.value = completeAnswerString;
 
-            console.log(`✅ Open-answers answer shown: "${firstCorrectAnswer}" (original: "${this.userInputValues.get(storageKey)}")`);
+            console.log(`✅ Open-answers answer shown: "${completeAnswerString}" (original: "${this.userInputValues.get(storageKey)}")`);
          }
       });
 
@@ -644,14 +661,24 @@ export class Homework {
     * @param {string} selector - CSS selector for textareas to resize
     */
    autoResizeTextareas(selector) {
+      // if selector is not provided, default to all possible textareas in homework
+      if (!selector) {
+         selector = ".fill-blanks-inputItem, .open-answers-item";
+      }
+
       setTimeout(() => {
-         const textareas = document.querySelectorAll(selector);
-         textareas.forEach((textarea) => {
-            if (textarea.tagName === "TEXTAREA") {
-               textarea.style.height = "auto";
-               textarea.style.height = textarea.scrollHeight + 5 + "px";
+         const elements = document.querySelectorAll(selector);
+         elements.forEach((element) => {
+            if (element.tagName === "TEXTAREA") {
+               element.style.height = "auto";
+               element.style.height = element.scrollHeight + 5 + "px";
+               console.log(`📏 Auto-resized textarea: ${element.scrollHeight + 5}px`);
             }
          });
+
+         if (elements.length > 0) {
+            console.log(`📏 Auto-resize completed for ${elements.length} elements`);
+         }
       }, 10); // Small delay to ensure value changes are applied
    }
 
@@ -913,10 +940,19 @@ export class Sheet {
          // Wait for auto-resize to complete before showing the container
          await this.waitForAutoResize(this.questionType);
 
-         Utils._visible(domManager.getElement("homework.main.container"));
+         const container = domManager.getElement("homework.main.container");
+         Utils._visible(container);
+
+         // Remove hidden class in case it was added during retry mode initialization
+         if (container) {
+            container.classList.remove("hidden");
+         }
 
          // Set focus on first textarea after everything is loaded and visible
          this.setFocusAfterLoad(this.questionType);
+
+         // Ensure auto-resize is applied after everything is loaded
+         homework.autoResizeTextareas();
 
          header.updateProgress();
 
@@ -1239,6 +1275,9 @@ export class Response {
 
          if (textareas.length > 0) {
             console.log(`📏 Auto-resize initialized for ${textareas.length} ${type} textareas`);
+
+            // Also trigger immediate auto-resize after initialization
+            homework.autoResizeTextareas();
          }
       }, 150); // Slightly longer delay to ensure content is loaded
    }
@@ -1329,11 +1368,11 @@ export class Header {
     */
    updateRetryHeader() {
       const retryContainer = domManager.getElement("homework.header.retry.container");
-      const retryQuestionNum = domManager.getElement("homework.header.retry.questionNum");
       const retryType = domManager.getElement("homework.header.retry.type");
       const progressBarContainer = domManager.getElement("homework.header.progressBar.container");
 
-      if (!retryContainer || !retryQuestionNum) {
+      if (!retryContainer) {
+         console.warn("Retry header elements not found");
          return;
       }
 
@@ -1342,23 +1381,29 @@ export class Header {
          const missedQuestionData = homework.missedQuestions[homework.sheetIndex];
          if (missedQuestionData) {
             const originalQuestionNum = missedQuestionData.index + 1;
-            retryQuestionNum.textContent = originalQuestionNum;
 
             // Update retry type text based on missed question result
             if (retryType) {
                if (missedQuestionData.result === "incorrect") {
-                  retryType.textContent = "Missed ";
+                  retryType.textContent = "Previous Mistake";
+                  Utils._removeClass(retryContainer, "skipped");
+                  Utils._addClass(retryContainer, "incorrect");
                } else if (missedQuestionData.result === "skipped") {
-                  retryType.textContent = "Skipped ";
+                  retryType.textContent = "Previously Skipped";
+                  Utils._removeClass(retryContainer, "incorrect");
+                  Utils._addClass(retryContainer, "skipped");
                }
             }
-
-            retryContainer.classList.remove("nodisplay");
 
             // Hide progress bar during retry mode
             if (progressBarContainer) {
                progressBarContainer.classList.add("nodisplay");
             }
+
+            // Show retry header
+            retryContainer.classList.remove("nodisplay");
+
+            console.log(`🔄 Retry header updated: ${retryType?.textContent || "Unknown"} ${originalQuestionNum}`);
          }
       } else {
          // Hide retry header in normal mode
@@ -1480,13 +1525,13 @@ export class Footer {
    setAlmost() {
       const container = domManager.getElement("homework.footer.container");
       const feedbackText = domManager.getElement("homework.footer.feedbackText");
-      const thumbsUpIcon = domManager.getElement("homework.footer.feedbackIconThumbsUp");
+      const almostIcon = domManager.getElement("homework.footer.feedbackIconAlmost");
       const btnShowAnswers = domManager.getElement("homework.footer.btnShowAnswers");
 
       container.classList.add("almost");
       feedbackText.textContent = Config.Messages.Footer.almost;
       Utils._addClass(feedbackText, "almost");
-      Utils._show(thumbsUpIcon);
+      Utils._show(almostIcon);
 
       // Show the "Show Answers" button for almost correct answers
       if (btnShowAnswers) {
@@ -1505,6 +1550,7 @@ export class Footer {
       const feedbackText = domManager.getElement("homework.footer.feedbackText");
       const trophyIcon = domManager.getElement("homework.footer.feedbackIconTrophy");
       const thumbsUpIcon = domManager.getElement("homework.footer.feedbackIconThumbsUp");
+      const almostIcon = domManager.getElement("homework.footer.feedbackIconAlmost");
 
       // Remove feedback classes
       container.classList.remove("correct", "incorrect", "almost");
@@ -1529,6 +1575,7 @@ export class Footer {
       feedbackText.textContent = "";
       Utils._hide(trophyIcon);
       Utils._hide(thumbsUpIcon);
+      Utils._hide(almostIcon);
 
       // Clear stored user input values for new sheet
       homework.userInputValues.clear();

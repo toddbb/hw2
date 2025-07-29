@@ -77,80 +77,6 @@
       },
       {
          "info": {
-            "type": "multiple-choice",
-            "en": "Read and choose.",
-            "vn": "Đọc và chọn câu trả lời đúng.",
-            "outcome": "",
-            "multiple": "",
-            "assisted": ""
-         },
-         "question": {
-            "text": "What's my uncle's name?",
-            "picture": "",
-            "audio": "",
-            "pdf": "Reading text 1-01.webp"
-         },
-         "answer 00": {
-            "correct": "yes",
-            "picture": "",
-            "text": "His name is John.",
-            "audio": ""
-         },
-         "id": "03",
-         "source": ["content/lessons/SJ_A1_004/test"],
-         "answer 01": {
-            "correct": "no",
-            "picture": "",
-            "text": "He likes swimming.",
-            "audio": ""
-         },
-         "answer 02": {
-            "correct": "no",
-            "picture": "",
-            "text": "He is 40 years old.",
-            "audio": ""
-         },
-         "changed": ["1"]
-      },
-      {
-         "info": {
-            "type": "multiple-choice",
-            "en": "Read and choose.",
-            "vn": "Đọc và chọn câu trả lời đúng.",
-            "outcome": "",
-            "multiple": "",
-            "assisted": ""
-         },
-         "question": {
-            "text": "Is Uncle John thirty years old?",
-            "picture": "",
-            "audio": "",
-            "pdf": "Reading text 1-01.webp"
-         },
-         "answer 00": {
-            "correct": "yes",
-            "picture": "",
-            "text": "No, he isn't.",
-            "audio": ""
-         },
-         "id": "04",
-         "source": ["content/lessons/SJ_A1_004/test"],
-         "answer 01": {
-            "correct": "no",
-            "picture": "",
-            "text": "Yes, he's happy.",
-            "audio": ""
-         },
-         "answer 02": {
-            "correct": "no",
-            "picture": "",
-            "text": "Yes, he is.",
-            "audio": ""
-         },
-         "changed": ["1"]
-      },
-      {
-         "info": {
             "type": "fill-blanks",
             "en": "Read and write one word for each gap.",
             "vn": "Đọc và viết 1 từ cho mỗi chỗ trống.",
@@ -172,12 +98,96 @@
             "text": "2. My aunt is {thirty}-five years olds."
          },
          "changed": ["1"]
+      },
+      {
+         "info": {
+            "type": "order-items",
+            "en": "Unscramble the sentence.",
+            "vn": "Sắp xếp từ thành câu.",
+            "outcome": ""
+         },
+         "question": {
+            "text": "",
+            "picture": "Write unscramble-08.png",
+            "audio": "",
+            "pdf": ""
+         },
+         "item 00": {
+            "text": "She",
+            "picture": "",
+            "audio": ""
+         },
+         "id": "11",
+         "source": ["content/lessons/SJ_A1_004/test"],
+         "item 01": {
+            "text": "is",
+            "picture": "",
+            "audio": ""
+         },
+         "item 02": {
+            "text": "thirty",
+            "picture": "",
+            "audio": ""
+         },
+         "item 03": {
+            "text": "years",
+            "picture": "",
+            "audio": ""
+         },
+         "item 04": {
+            "text": "old.",
+            "picture": "",
+            "audio": ""
+         },
+         "changed": ["1"]
+      },
+      {
+         "info": {
+            "type": "open-answers",
+            "en": "Look and think of one word for each gap. Write all 4 sentences.",
+            "vn": "Nhìn hình và chọn một từ cho mỗi ô trống. Viết cả 4 câu hoàn chỉnh.",
+            "outcome": ""
+         },
+         "question": {
+            "text": "",
+            "picture": "WRI_sentence wri S1.png",
+            "audio": "",
+            "pdf": ""
+         },
+         "answer 00": {
+            "text": "1.",
+            "picture": "",
+            "audio": "",
+            "answers": "This is my niece."
+         },
+         "id": "12",
+         "source": ["content/lessons/SJ_A1_004/test"],
+         "answer 01": {
+            "text": "2.",
+            "picture": "",
+            "audio": "",
+            "answers": "Her name is Jenny."
+         },
+         "answer 02": {
+            "text": "3.",
+            "picture": "",
+            "audio": "",
+            "answers": "She is eight years old. / She's eight years old."
+         },
+         "answer 03": {
+            "text": "4.",
+            "picture": "",
+            "audio": "",
+            "answers": "She likes reading books."
+         },
+         "changed": ["1"]
       }
    ],
    "resources": [
       "Reading text 1-01.webp",
       "Reading text 2 YES - NO-02.png",
       "Reading text 2 YES - NO-03.png",
+      "Reading text.pdf",
       "SJ_A1_004 unscramble.png",
       "WRI_sentence wri S1.png",
       "WRI_sentence wri S2.png",

@@ -45,6 +45,7 @@ div[data-uid="layer-front"] {
 .modal-activity {
     background-color: var(--background-white);
     height: 100vh;
+    user-select: none;
 }
 
 /******************* HEADER *******************/
@@ -61,12 +62,17 @@ div[data-uid="layer-front"] {
     right: 0;
     background-color: var(--color-orange, #ff9800);
     color: white;
-    padding: 8px 16px;
+    padding: 14px 16px;
     font-size: 14px;
     font-weight: 600;
     border-radius: 0 0 8px 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 10;
+}
+
+.header-retry.incorrect {
+    
+    background-color: rgb(245 149 149);
 }
 
 .header-retry-text {
@@ -572,7 +578,7 @@ textarea.open-answers-item {
     height: 80px;
     max-width: 1200px;
     display: grid;
-    grid-template-columns: minmax(140px, 1fr) minmax(auto, 6fr) minmax(140px, 1fr);
+    grid-template-columns: minmax(150px, 1fr) minmax(auto, 4fr) minmax(150px, 1fr);
     align-items: center;
     justify-items: center;
 }
@@ -599,9 +605,15 @@ textarea.open-answers-item {
     min-width: 130px;
 }
 
+.hw-btn-skip {
+    background-color: var(--gray-200);
+    border-bottom: 2px solid var(--gray-300);
+}
+
 .hw-btn-show-answers {
     border-radius: 20px;
     background-color: #8888d3;
+    border-bottom: 2px solid #4f4fd9;
     color: white;
     cursor: pointer;
 }
@@ -613,21 +625,35 @@ textarea.open-answers-item {
 
 .hw-btn-show-answers.hide-answers {
     background-color: rgb(56, 56, 59);
+    
+    border-bottom: 2px solid #000000;
 }
 
 
-.feedback-icon {
-    fill: var(--gray-300);
-    stroke: var(--gray-300);
-    width: 36px;
-}
+
 
 /* make the .feedback-icon svg fill and stroke a light gray */
 .feedback-icon {
-    width: 36px;
-    height: 36px;
-    fill: var(--gray-400);
-    stroke: var(--gray-400);
+    width: 40px;
+    height: 40px;
+    fill: #f9f9f9;
+    border-radius: 50%;
+    padding: 6px;
+}
+
+.feedback-icon-trophy {
+    
+    background-color: #44ae44;
+}
+
+.feedback-icon-thumbs-up {
+    
+    background-color: #f06161;
+}
+
+.feedback-icon-almost {
+    
+    background-color: rgb(254 159 63);
 }
 
 .feedback-text {
@@ -661,98 +687,15 @@ textarea.open-answers-item {
 
 .hw-btn-control.mode-check.active {
     background-color: var(--primary);
+    border-bottom: 2px solid #3838c1;
 }
 
 .hw-btn-control.mode-next.active {
     background-color: var(--accent);
+    border-bottom: 2px solid #039603;
 }
 
 
-
-/***************************************************************************/
-/***********             LAZY LOADING STYLES            ********************/
-/***************************************************************************/
-
-/* Lazy loading placeholder styling */
-.lazy-loading {
-    opacity: 0.7;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.lazy-loading.media-type-img {
-    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-    background-size: 200% 100%;
-    animation: shimmer 1.5s infinite;
-    min-height: 100px; /* Prevent layout shift */
-}
-
-.lazy-loading.media-type-iframe {
-    background: #f8f9fa;
-    position: relative;
-}
-
-.lazy-loading.media-type-iframe::before {
-    content: 'Loading...';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #6c757d;
-    font-size: 0.9rem;
-}
-
-.lazy-loaded {
-    opacity: 1;
-    transition: opacity 0.3s ease-in-out;
-}
-
-/* Shimmer animation for loading images */
-@keyframes shimmer {
-    0% {
-        background-position: -200% 0;
-    }
-    100% {
-        background-position: 200% 0;
-    }
-}
-
-
-/***************************************************************************/
-/***********       CLASSES CASCADED LAST          *************************/
-/***************************************************************************/
-
-.selected-blue {
-    border: 1px solid #8888ee;
-    border-bottom: 2px solid #8686de;
-    background-color: #e8e8ff;
-}
-
-.dragging {
-  opacity: 0.4;
-  color: rgb(18, 20, 145);
-  background-color: rgb(227, 228, 255);
-}
-
-.nodisplay {
-   display: none !important;
-}
-
-.hidden {
-   visibility: hidden !important;
-}
-
-.novisible {
-    visibility: hidden;
-}
-
-* {
-    outline: 0px solid limegreen;
-}
-
-.layout  * {
-    outline: 1px solid limegreen;
-
-}
 
 /***************************************************************************/
 /***********             CONFETTI STYLES                 ********************/
@@ -894,12 +837,12 @@ canvas[style*="pointer-events: none"] {
     transition: all 0.3s ease;
     min-width: 180px;
 }
-
+/* 
 .results-btn-retry:hover,
 .results-btn-quit:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
+} */
 
 .results-btn-retry.disabled,
 .results-btn-retry:disabled {
@@ -913,6 +856,93 @@ canvas[style*="pointer-events: none"] {
 .results-btn-retry:disabled:hover {
     transform: none;
     box-shadow: none;
+}
+
+
+
+/***************************************************************************/
+/***********             LAZY LOADING STYLES            ********************/
+/***************************************************************************/
+
+/* Lazy loading placeholder styling */
+.lazy-loading {
+    opacity: 0.7;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.lazy-loading.media-type-img {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    min-height: 100px; /* Prevent layout shift */
+}
+
+.lazy-loading.media-type-iframe {
+    background: #f8f9fa;
+    position: relative;
+}
+
+.lazy-loading.media-type-iframe::before {
+    content: 'Loading...';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.lazy-loaded {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Shimmer animation for loading images */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+
+/***************************************************************************/
+/***********       CLASSES CASCADED LAST          *************************/
+/***************************************************************************/
+
+.selected-blue {
+    border: 1px solid #8888ee;
+    border-bottom: 2px solid #8686de;
+    background-color: #e8e8ff;
+}
+
+.dragging {
+  opacity: 0.4;
+  color: rgb(18, 20, 145);
+  background-color: rgb(227, 228, 255);
+}
+
+.nodisplay {
+   display: none !important;
+}
+
+.hidden {
+   visibility: hidden !important;
+}
+
+.novisible {
+    visibility: hidden;
+}
+
+* {
+    outline: 0px solid limegreen;
+}
+
+.layout  * {
+    outline: 1px solid limegreen;
+
 }
 
 

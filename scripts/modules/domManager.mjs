@@ -68,7 +68,6 @@ export class DomManager {
             container: document.querySelector(".header-retry"),
             type: document.querySelector(".header-retry-question-type"),
             text: document.querySelector(".header-retry-text"),
-            questionNum: document.querySelector(".header-retry-question-num"),
          },
       };
    }
@@ -104,6 +103,7 @@ export class DomManager {
          feedbackText: document.querySelector(".feedback-text"),
          feedbackIconTrophy: document.querySelector(".feedback-icon-trophy"),
          feedbackIconThumbsUp: document.querySelector(".feedback-icon-thumbs-up"),
+         feedbackIconAlmost: document.querySelector(".feedback-icon-almost"),
          btnSkip: document.querySelector(".hw-btn-skip"),
          btnControl: document.querySelector(".hw-btn-control"),
          btnShowAnswers: document.querySelector(".hw-btn-show-answers"),
