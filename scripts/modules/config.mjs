@@ -25,7 +25,7 @@ function BASE_URL() {
    if (host === "localhost" || host === "127.0.0.1") {
       return "http://localhost:5500"; // or whatever your local server port is
    } else if (host.endsWith("github.io")) {
-      return "https://" + host + "/hw"; // replace with your actual GitHub repo name
+      return "https://" + host + "/hw2"; // replace with your actual GitHub repo name
    } else {
       return window.location.origin; // default fallback
    }
